@@ -551,3 +551,130 @@
     [Attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
     [CSS Attribute Selector](https://www.w3schools.com/css/css_attribute_selectors.asp)
+
+- 문서 구조 관련 선택자
+
+    선택자 중에는 문서의 구조를 이용하여 요소를 선택하는 선택자도 있습니다.
+    문맥이나 요소의 구조를 기반으로 하여 선택자를 조합하는 것을 '조합자' 또는 '결정자'라고 부릅니다.
+    이 조합자를 이용하면 문서 구조를 이용해 좀 더 유연하게 요소를 선택하고 스타일을 적용할 수 있습니다.
+
+    ### 문서 구조의 이해
+
+    선택자와 문서의 관계를 이해하기 위해 먼저 어떻게 문서가 구조화 되는지를 살펴보겠습니다.
+
+    ```html
+    <html>
+    	<body>
+    		<div>
+    			<h1><span>HTML</span>: Hyper Text Markup Language</h1>
+    		</div>
+    		<p>HTML과 CCS와 JavaScript를 이용하여 멋진 웹 사이트를 제작할 수 있습니다.</p>
+    	</body>
+    </html>
+    ```
+
+    위 HTML 코드에서 각 요소들을 짚어가면서 부모와 자식, 조상과 자손, 그리고 형제의 관계를 살펴보겠습니다.
+
+    ### 부모와 자식
+
+    부모 요소는 그 요소를 포함하는 가장 가까운 상위 요소로, 그 요소의 부모 요소는 단 하나뿐입니다.
+    자식 요소는 부모 요소와 반대라고 생각하면 되며 자식 요소는 여러 개일 수도 있습니다.
+
+    - `<body>`의 부모요소 : `<html>` ↔ `<html>`의 자식 요소 : `<body>`
+    - `<div>`의 부모 요소 : `<body>` ↔ <body>의 자식 요소 : `<div>`, `<p>`
+    - `<h1>`의 부모 요소 : `<div>` ↔ `<div>`의 자식 요소 : `<h1>`
+    - `<span>`의 부모 요소 : `<h1>` ↔ `<h1>`의 자식 요소 : `<span>`
+    - `<p>`의 부모 요소 `<body>` ↔ `<body>`의 자식 요소 : `<div>`, `<p>`
+
+    ### 조상과 자손
+
+    조상과 자손의 관계는 부모와 자식의 관계와 비슷합니다.
+    정확히 얘기하면 부모와 자식의 관계를 포함한 확장된 관계라고 생각하면 됩니다.
+    조상 요소는 그 요소를 포함하는 모든 요소로, 부모 요소를 포함하여 여러 개일 수도 있습니다.
+    자손 요소는 그 반대로, 그 요소가 포함하고 있는 모든 요소가 자손 요소입니다.
+
+    - `<body>`의 조상 요소 : `<html>` ↔ `<html>`의 자손 요소 : `<body>`, `<div>`, `<h1>`, `<span>`, `<p>`
+    - `<div>`의 조상 요소 : `<html>`, `<body>` ↔ `<body>`의 자손 요소 : `<div>`, `<h1>`, `<span>`, `<p>`
+    - `<h1>`의 조상 요소 : `<html>`, `<body>`, `<div>` ↔ `<div>`의 자손 요소 : `<h1>`, `<span>`
+    - `<span>`의 조상 요소 : `<html>`, `<body>`, `<div>`, `<h1>` ↔ `<h1>`의 자손 요소 : `<span>`
+    - `<p>`의 조상 요소 : `<html>`, `<body>` ↔ `<body>`의 자손 요소 `<div>`, `<h1>`, `<span>`, `<p>`
+
+    보통 문서의 요소들은 모두 이처럼 어느 요소의 자식(자손) 요소이자 부모(조상) 요소가 되는 경우가 많습니다.
+
+    ### 형제
+
+    부모와 자식, 조상과 자손 말고도 형제 관계도 있습니다.
+    같은 부모를 가지고 있는 요소들은 서로 형제 관계에 있습니다.
+    위 코드에서는 `<div>`, `<p>`가 형제 요소입니다.
+    형제 관계 중에는 인접한 관계도 있습니다.
+    형제 관계에 있는 요소 중 바로 뒤에 이어 나오는 요소를 인접해 있다고 합니다.
+    여기서 `<p>`가 `<div>`에 인접한 형제 요소가 됩니다.
+    문서의 구조는 흔히 가계도나 조직도의 관계와 비슷하다고 생각하면 이해하기가 쉽습니다.
+
+    ### 문서 구조 관련 선택자
+
+    문서 구조를 이용한 선택자는 3가지가 있습니다.
+    자손 선택자와 자식 선택자, 그리고 인접 형제 선택자 입니다.
+    문서 구조를 잘 이해했다면 쉽게 예측할 수 있습니다.
+
+    ### 자손 선택자
+
+    ```css
+    div span { color: red; }
+    ```
+
+    자손 선택자는 선택자 사이에 아무 기호없이 그냥 공백으로 구분을 합니다.
+    이 선택자는 `<div>`의 자손 요소인 `<span>`을 선택하는 선택자입니다.
+
+    ### 자식 선택자
+
+    ```css
+    div > h1 { color: blue; }
+    ```
+
+    자식 선택자는 선택자 사이에 닫는 꺽쇠 기호(>)를 넣습니다.
+    꺽쇠 기호와 선택자 기호 사이에 공백이 있거나 없어도 상관이 없습니다.
+    이 선택자는 `<div>`의 자식 요소인 `<h1>`을 선택하는 선택자 입니다.
+
+    ### 인접 형제 선택자
+
+    ```css
+    div + p { color : green; }
+    ```
+
+    인접 형제 선택자는 선택자 사이에 + 기호를 넣습니다.
+    자식 선택자와 마찬가지로 공백은 있거나 없어도 상관이 없습니다.
+    인접 형제 선택자는 형제 관계이면서 바로 뒤에 인접해 있는 요소를 선택하는 선택자 입니다.
+
+    ### 일반 형제 선택자
+
+    ```css
+    div ~ p { color : yellow; }
+    ```
+
+    일반 형제 선택자는 선택자 사이에 틸트(~) 기호를 넣습니다.
+    인접 형제 선택자와 마찬가지로 공백은 있거나 없어도 상관이 없습니다.
+    뒤쪽 요소와 앞쪽 요소의 부모 요소가 같고, 뒤쪽 요소가 뒤에 위치할 때 선택하는 선택자 입니다.
+    두 요소가 서로 인접해 있을 필요는 없습니다.
+
+    ```css
+    /* body 요소의 자식인 div 요소의 자손인 table 요소 바로 뒤에 인접한 p 요소 선택 */
+    body > div table + p { ... }
+    ```
+
+    위 코드처럼 문서 구조 관련 선택자는 더 복잡하게 사용할 수 있습니다.
+    유의할 점은 요소들이 많이 나열되어 있더라도 제일 우측에 있는 요소가 실제 선택되는 요소라는 것입니다.
+
+    ---
+
+    ### 참고자료
+
+    [Descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator)
+
+    [Child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator)
+
+    [Adjacent sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator)
+
+    [General sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator)
+
+    [CSS element1~element2 Selector](https://www.w3schools.com/cssref/sel_gen_sibling.asp)
