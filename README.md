@@ -240,7 +240,7 @@
 
     *(별표, asterisk) 기호로 문서 내의 모든 요소를 선택할 수 있습니다.
     이렇게 선언하면, 한 번의 선언만으로 문서 내에 모든 요소에 스타일 규칙이 적용됩니다.
-    전체 선택자는 매우 편리하지만, 성능에 좋지 않으므로 될 수 있으면 사용을 지양합니다.
+    전체 선택자는 매우 편리하지만 성능에 좋지 않으므로 될 수 있으면 사용을 지양합니다.
 
     ### 그룹화
 
@@ -265,7 +265,7 @@
 
     ---
 
-    ### 전체 코드
+    ### 실습 코드
 
     ```html
     <!DOCTYPE html>
@@ -286,8 +286,124 @@
 
     ---
 
+    ### class 선택자
+
+    요소에 구애받지 않고 스타일 규칙을 적용할 수 있는 가장 일반적인 방법은 class 선택자를 활용하는 것입니다.
+    class 선택자를 사용하기 위해서는 HTML을 수정해 class 속성을 추가해야 합니다.
+    class 속성은 글로벌 속성이므로 어느 태그에서도 사용할 수 있습니다.
+    class 속성에 값을 넣게 되면 class 선택자를 이용해서 해당 요소에 스타일 규칙을 적용할 수 있습니다.
+
+    ```html
+    <style>
+    	.foo { font-size: 30px; }
+    </style>
+
+    ...
+    <p class="foo"> ... </p>
+    ```
+
+    위 코드처럼 `<p>` 태그의 class 속성의 값으로 'foo'라는 값을 넣었다면 CSS에서 그 값('foo')을 선택자로 지정하면 됩니다.
+    클래스 선택자를 쓸 때는 맨 앞에 마침표(.)를 찍어주셔야 합니다.
+    이렇게 되면 어느 요소든지 class 속성값이 'foo'로 선언된 요소가 있다면 해당 스타일 규칙을 적용받게 됩니다.
+
+    ```html
+    <style>
+    	.html { color: red; }
+    	.css { text-decoration: underline; }
+    </style>
+
+    ...
+    <dl>
+    	<dt class="html">HTML</dt>
+    	<dd><span class="html">HTML</span>은 문서의 구조를 나타냅니다.</dd>
+    	<dt class="css">CSS</dt>
+    	<dd><span class="css">CSS</span>는 문서의 표현을 나타냅니다.</dd>
+    </dl>
+    ```
+
+    ### 다중 class
+
+    class 속성은 꼭 하나의 값만 가질 수 있는 것은 아닙니다.
+    공백으로 구분하여 여러 개의 class 값을 넣을 수 있습니다.
+
+    ```html
+    <style>
+    	.foo { font-size: 30px; }
+    	.bar { color: blue; }
+    </style>
+
+    ...
+    <p class="foo bar"> ... </p>
+    ```
+
+    위의 `<p>` 태그에 class 속성에 'foo'와 'bar' 2개의 값을 공백을 통해 넣었습니다.
+    그리고 foo class 선택자에는 폰트의 크기를 30px로, bar class 선택자에는 글자를 파란색으로 적용하는 스타일 규칙이 선언되어 있습니다.
+    그렇게 되면 이 `<p>` 태그에는 2개의 규칙이 모두 적용이 됩니다.
+
+    ### id 선택자
+
+    id 선택자는 class 선택자와 비슷합니다.
+    아이디 선택자를 쓸 때는 마침표(.) 기호 대신 해시(#) 기호를 씁니다.
+    요소에는 class 속성 대신 id 속성만 써주면 됩니다.
+
+    ```html
+    <style>
+    	#baz { background-color: gray; }
+    </style>
+
+    ...
+    <p id="baz"> ... </p>
+    ```
+
+    이 `<p>` 태그는 id 선택자의 스타일 규칙이 적용됩니다.
+
+    ### class 선택자와의 차이점
+
+    1. . 기호가 아닌 # 기호 사용
+    2. 태그의 class 속성이 아닌 id 속성을 참조
+    3. 문서 내에 유일한 요소에 사용
+    4. 구체성
+
+    가장 큰 차이점은 class와 달리 id는 문서 내에서 유일해야 한다는 점입니다.
+    클래스 선택자는 여러 요소에 같은 클래스를 넣고 같은 규칙을 적용할 수 있었습니다.
+    그리고 그것이 클래스 선택자의 장점이기도 합니다.
+    하지만 id 속성값은 문서 내에 유일하게 사용이 되어야 합니다.
+    결국, id 선택자로 규칙을 적용할 수 있는 요소는 단 하나 뿐입니다.
+    그리고 마지막으로 구체성의 값이 다릅니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>css</title>
+    		<style>
+    			.item { background: gray; }
+    			.a { color: red; }
+    			.b { color: blue; }
+    			#special { color: white; }
+    		</style>
+    	</head>
+    	<body>
+    		<ul>
+    			<li class="item a">first</li>
+    			<li class="item b">second</li>
+    			<li class="item" id="special">third</li>
+    		</ul>
+    	</body>
+    </html>
+    ```
+
+    ---
+
     ### 참고자료
 
     [Selector (CSS)](https://developer.mozilla.org/en-US/docs/Glossary/CSS_Selector)
 
     [CSS Selectors Reference](https://www.w3schools.com/cssref/css_selectors.asp)
+
+    [The Difference Between ID and Class | CSS-Tricks](https://css-tricks.com/the-difference-between-id-and-class/)
