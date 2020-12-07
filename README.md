@@ -148,7 +148,7 @@
 
     ```html
     <head>
-    	<link rel="stylesheet" href="./style.css">
+    	<link rel="stylesheet" href="./base.css">
     </head>
     ```
 
@@ -167,7 +167,7 @@
     ```html
     <head>
     	<style>
-    		@import url("./style.css");
+    		@import url("./base.css");
     	</style>
     </head>
     ```
@@ -175,7 +175,7 @@
     base.css
 
     ```css
-    @import url("./style.css");
+    @import url("./base.css");
     div { color: gray; }
     ...
     ```
@@ -192,7 +192,7 @@
     	<head>
     		<meta charset="UTF-8">
     		<title>css</title>
-    		<link rel="stylesheet" href="./style.css">
+    		<link rel="stylesheet" href="./base.css">
     	</head>
     	<body>
     		<p>Hello, CSS</p>
