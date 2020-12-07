@@ -31,7 +31,7 @@
 
     [CSS Zen Garden](http://www.csszengarden.com/)
 
-- CSS 문법
+- CSS 문법과 CSS의 적용
 
     CSS는 HTML 요소를 꾸며주는 역할을 합니다.
     CSS는 꾸밀 대상이 되는 요소와 그에 대한 스타일 내용으로 이루어져 있습니다.
@@ -208,3 +208,86 @@
     [How CSS is structured](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured)
 
     [How to add CSS](https://www.w3schools.com/css/css_howto.asp)
+
+- 선택자
+
+    ### 선택자(selector)란?
+
+    선택자는 복잡하고 다양한 요소들 사이에서 내가 원하는 요소만을 선택할 수 있도록 해줍니다.
+    완성도 있는 디자인을 표현하기 위해서는 반드시 내가 원하는 요소를 선택할 수 있어야 하기 때문에 선택자는 매우 중요합니다.
+
+    ### 요소 선택자
+
+    선택자 중에 가장 기본이 되는 선택자이며, 태그 선택자라고도 합니다.
+
+    ```css
+    h1 { color: blue; }
+    h2 { color: blue; }
+    h3 { color: blue; }
+    h4 { color: blue; }
+    h5 { color: blue; }
+    h6 { color: blue; }
+    ```
+
+    요소 선택자는 위 코드처럼 선택자 부분에 태그 이름이 들어갑니다.
+    문서 내에 선택자에 해당하는 모든 태그, 요소에 스타일 규칙이 적용됩니다.
+
+    ### 전체 선택자
+
+    ```css
+    * { color: red; }
+    ```
+
+    *(별표, asterisk) 기호로 문서 내의 모든 요소를 선택할 수 있습니다.
+    이렇게 선언하면, 한 번의 선언만으로 문서 내에 모든 요소에 스타일 규칙이 적용됩니다.
+    전체 선택자는 매우 편리하지만, 성능에 좋지 않으므로 될 수 있으면 사용을 지양합니다.
+
+    ### 그룹화
+
+    선택자는 쉼표를 이용해서 그룹화를 할 수 있습니다.
+
+    ```css
+    h1, h2, h3, h4, h5, h6 { color: blue; }
+    ```
+
+    위 코드는 요소 선택자의 예제 코드와 동일한 동작을 하는 코드입니다.
+    선택자뿐만 아니라 선언들도 그룹화가 가능합니다.
+
+    ```css
+    h1 { color: blue; font-size: 2em; background-color: yellow; }
+    ```
+
+    그리고 마지막으로 선택자와 선언이 동시에 그룹화도 가능합니다.
+
+    ```css
+    h1, h2, h3, h4, h5, h6 { color: blue; font-size: 2em; background-color: yellow; }
+    ```
+
+    ---
+
+    ### 전체 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>css</title>
+    		<style>
+    			h1 { color: blue; font-size: 2em; background-color: yellow; }
+    		</style>
+    	</head>
+    	<body>
+    		<h1>Hello, CSS</h1>
+    		<p>The language for styling web pages</p>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [Selector (CSS)](https://developer.mozilla.org/en-US/docs/Glossary/CSS_Selector)
+
+    [CSS Selectors Reference](https://www.w3schools.com/cssref/css_selectors.asp)
