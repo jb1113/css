@@ -400,6 +400,146 @@
 
     ---
 
+    ### 선택자의 조합
+
+    선택자는 종류에 상관없이 여러 가지 선택자들을 조합하여 사용할 수 있습니다.
+    요소와 클래스를 조합할 수도 있고, 다중 클래스, 아이디와 클래스도 조합이 가능합니다.
+
+    ```css
+    /* 요소와 class의 조합 */
+    p.bar { ... }
+
+    /* 다중 class */
+    .foo.bar { ... }
+
+    /* id와 class의 조합 */
+    #foo.bar { ... }
+    ```
+
+    첫번째는 요소와 클래스를 조합한 경우입니다.
+    이 경우에는 `<p>` 태그이면서 class 속성에 bar가 있어야 적용됩니다.
+    두 번째는 다중 클래스의 경우입니다.
+    이 경우에는 class 속성에 foo와 bar가 모두 있어야 적용됩니다.
+    마지막은 id와 class를 조합한 경우입니다.
+    이 경우에는 id가 foo이며 class가 bar인 요소에 적용됩니다.
+
+    ```html
+    <style>
+    	.html { color: red; }
+    	.css { text-decoration: underline; }
+    	.html.css { border: 1px solid; }
+    </style>
+
+    ...
+    <dl>
+    	<dt class="html">HTML</dt>
+    	<dd><span class="html">HTML</span>은 문서의 구조를 나타냅니다.</dd>
+    	<dt class="css">CSS</dt>
+    	<dd><span class="css">CSS</span>는 문서의 표현을 나타냅니다.</dd>
+    	<dt class="html css">JavaScript</dt>
+    	<dd><span class="html css">JavaScript</span>는 문서의 동작을 나타냅니다.</dd>
+    </dl>
+    ```
+
+    ### 속성 선택자
+
+    **단순 속성으로 선택**
+
+    ```html
+    <style>
+    	p[class] { color: green; }
+    	p[class][id] { text-decoration: underline; }
+    </style>
+
+    ...
+    <p class="foo">HTML</p>
+    <p class="bar">CSS</p>
+    <p class="baz" id="title">JavaScript</p>
+    ```
+
+    속성 선택자는 대괄호를 이용해서 선언하며 대괄호 안에 속성 이름이 들어갑니다.
+    요소에 해당 이름의 속성이 있다면 해당 사항이 적용됩니다.
+    위 CSS 코드는 요소 선택자와의 조합으로 이루어진 코드입니다.
+    첫번째는 `<p>` 태그 이면서 class 속성이 있는 요소이면 color: green 규칙이 적용됩니다.
+    두번째는 `<p>` 태그 이면서 class 속성과 id 속성이 함께 있어야 text-decoration: underline 규칙이 적용됩니다.
+    바로 위 HTML 코드에는 3개의 `<p>` 태그가 있습니다.
+    그렇다면 이 3개의 `<p>` 태그에는 각자 어떤 스타일이 적용될까요?
+    `p[class]` 선택자의 규칙은 class 속성만 존재하면 적용이 되기 때문에 3가지 요소 모두에 적용됩니다.
+    `p[class][id]` 선택자의 규칙은 class 속성과 id 속성 모두 있는 요소만 해당하기 때문에 마지막 요소에만 적용됩니다.
+    두 규칙 모두 속성의 값은 상관하지 않습니다.
+
+    **정확한 속성값으로 선택**
+
+    정확한 속성값으로 선택은 제목 그대로 속성의 값으로 요소를 선택합니다.
+    선택자는 대괄호 안에 속성 이름과 속성값을 다 적으면 됩니다.
+
+    ```css
+    p[class="foo"] { color: green; }
+    p[id="title"] { text-decoration: underline; }
+    ```
+
+    `p[class="foo"]`는 `<p>` 태그 이면서 class 속성의 값이 foo이면 적용되고, `p[id="title"]`는 `<p>` 태그이면서 id 속성의 값이 title이면 적용됩니다.
+    위 예제 코드의 3개의 `<p>` 태그 중 첫번째 `<p>` 태그에는 color: green 규칙이 세번째 `<p>` 태그에는 text-decoration: underline 규칙이 적용됩니다.
+
+    **부분 속성값으로 선택**
+
+    부분 속성값으로 선택은 속성 이름과 속성값 사이에 사용되는 기호에 따라 동작이 조금 다릅니다.
+
+    - [class~="foo"] : class 속성의 값이 공백으로 구분한 'foo' 단어가 포함되는 요소 선택
+    - [class^="foo"] : class 속성의 값이 'foo'로 시작하는 요소 선택
+    - [class$="foo"] : class 속성의 값이 'foo'로 끝나는 요소 선택
+    - [class*="foo"] : class 속성의 값이 'foo' 문자가 포함되는 요소 선택
+
+    ```html
+    <p class="color hot">red</p>
+    <p class="cool color">blue</p>
+    <p class="colorful nature">rainbow</p>
+    ```
+
+    ```css
+    p[class~="color"] { font-style: italic; }
+    p[class^="color"] { font-style: italic; }
+    p[class$="color"] { font-style: italic; }
+    p[class*="color"] { font-style: italic; }
+    ```
+
+    위의 코드에서는 모두 class 속성값으로 'color'를 선택합니다.
+    요소 순서대로 기호에 따라 규칙이 적용되는 결과는 다음과 같습니다.
+
+    ```css
+    p[class~="color"] { font-style: italic; } /* 1, 2번째 요소 */
+    p[class^="color"] { font-style: italic; } /* 1, 3번째 요소 */
+    p[class$="color"] { font-style: italic; } /* 2번째 요소 */
+    p[class*="color"] { font-style: italic; } /* 1, 2, 3번째 요소 */
+    ```
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>css</title>
+    		<style>
+    			p[class~="color"] { font-style: italic; }
+    			/* p[class^="color"] { font-style: italic; } */
+    			/* p[class$="color"] { font-style: italic; } */
+    			/* p[class*="color"] { font-style: italic; } */
+    		</style>
+    	</head>
+    	<body>
+    		<p class="color hot">red</p>
+    		<p class="cool color">blue</p>
+    		<p class="colorful nature">rainbow</p>
+    	</body>
+    </html>
+    ```
+
+    ---
+
     ### 참고자료
 
     [Selector (CSS)](https://developer.mozilla.org/en-US/docs/Glossary/CSS_Selector)
@@ -407,3 +547,7 @@
     [CSS Selectors Reference](https://www.w3schools.com/cssref/css_selectors.asp)
 
     [The Difference Between ID and Class | CSS-Tricks](https://css-tricks.com/the-difference-between-id-and-class/)
+
+    [Attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
+
+    [CSS Attribute Selector](https://www.w3schools.com/css/css_attribute_selectors.asp)
