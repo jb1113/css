@@ -134,7 +134,7 @@
     외부 스타일 시트는 스타일 규칙들을 별도의 외부 파일을 만들어 넣는 방식입니다.
     외부 파일은 확장자가 .css가 되며 css 파일이라고 부릅니다.
 
-    style.css
+    base.css
 
     ```css
     div { color: gray; }
@@ -144,7 +144,7 @@
     우선 .css를 확장자로 갖는 CSS 파일을 하나 만들고 스타일 규칙을 선언합니다.
     그다음 `<link>` 태그를 이용해서 CSS 파일을 연결하면 됩니다.
 
-    main.html
+    document.html
 
     ```html
     <head>
@@ -162,7 +162,7 @@
 
     Import는 스타일 시트 내에서 다른 스타일 시트 파일을 불러오는 방식입니다.
 
-    main.html
+    document.html
 
     ```html
     <head>
@@ -172,7 +172,7 @@
     </head>
     ```
 
-    style.css
+    base.css
 
     ```css
     @import url("./style.css");
