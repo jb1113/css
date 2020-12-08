@@ -469,3 +469,136 @@
     [General sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator)
 
     [CSS element1~element2 Selector](https://www.w3schools.com/cssref/sel_gen_sibling.asp)
+
+- 가상 선택자
+
+    ### 가상 선택자(pseudo selector)란?
+
+    가상 선택자에는 가상 클래스와 가상 요소가 있습니다.
+    가상 클래스 선택자는 특정 요소의 상태를 미리 추정해서 가상의 클래스로 스타일을 적용할 수 있는 선택자입니다.
+    class 선택자와는 조금 다르지만, 마치 클래스 선택자처럼 동작하기에 가상 클래스 선택자라고 부릅니다.
+
+    ### 가상 클래스(pseudo class)
+
+    가상 클래스는 미리 정의해놓은 상황에 적용되도록 약속된 보이지 않는 클래스입니다.
+    우리가 직접 요소에 클래스를 선언하는 것은 아니고, 약속된 상황이 되면 브라우저 스스로 클래스를 적용해줍니다.
+
+    예를 들어, `<p>` 태그가 있다고 가정하겠습니다.
+    이 `<p>` 태그에 마우스 커서를 올렸을 때만 특정 스타일을 주고 싶다고 한다면 어떻게 해야 할까요?
+    가상 클래스가 없다면 이런 과정을 거치게 됩니다.
+
+    1. 임의의 클래스 선택자를 선언하여 특정 스타일 규칙을 만든다.
+    2. `<p>` 요소에 커서가 올라가면 `<p>` 요소에 클래스를 집어넣는다.
+    3. `<p>` 요소에서 커서가 빠지면 `<p>` 요소에 클래스를 삭제한다.
+
+    여기서 2, 3번은 동적으로 변화되어야 하는데, HTML과 CSS는 정적인 언어이기 때문에 처리할 수 없습니다.
+    어쩔 수 없이 다른 언어를 사용해야 하는데 이는 개발 비용이 들어가는 일입니다.
+    그래서 CSS에서는 흔하게 사용되는 여러 패턴에 대해서 미리 정의해놓고 가상 클래스로 제어할 수 있게 했습니다.
+
+    ```css
+    :pseudo-class {
+    	property: value;
+    }
+    ```
+
+    위 처럼 가상 클래스는 콜론(:) 기호를 써서 나타냅니다.
+    가상 클래스를 이용하면 아래의 경우에도 CSS만으로 처리가 가능하므로 훨씬 효율적입니다.
+    (:hover 가상 클래스 선택자를 이용해서 스타일 규칙을 만듭니다.) - hover는 마우스 커서가 올라갔을 때 적용이 되도록 정의되어 있습니다.
+    가상 클래스에는 이것 말고도 여러 가지가 정의되어 있습니다.
+
+    ### 문서 구조와 관련된 가상 클래스
+
+    문서 구조와 관련된 가상 클래스는 대표적으로 first-child와 last-child 가상 클래스 선택자가 있습니다.
+
+    - :first-child : 첫 번째 자식 요소 선택
+    - :last-child : 마지막 자식 요소 선택
+
+    ```html
+    <style>
+    	li:first-child { color: red; }
+    	li:last-child { color: blue; }
+    </style>
+
+    ...
+    <ul>
+    	<li>HTML</li>
+    	<li>CSS</li>
+    	<li>JavaScript</li>
+    </ul>
+    ```
+
+    첫 번째 `<li>`와 마지막 `<li>`에 가상 클래스가 적용됩니다.
+    실제 `<li>`에는 class 속성이 없지만 내부적으로 가상 클래스가 적용되어 마치 아래의 코드와 같이 동작하게 됩니다.
+
+    ```html
+    <ul>
+    	<li class="first-child">HTML</li>
+    	<li>CSS</li>
+    	<li class="last-child">JavaScript</li>
+    </ul>
+    ```
+
+    ### 앵커 요소와 관련된 가상 클래스
+
+    앵커 요소와 관련된 대표적인 가상 클래스로는 :link와 :visited가 있습니다.
+
+    - :link : 하이퍼 링크이면서 아직 방문하지 않은 앵커
+    - :visited : 이미 방문한 하이퍼링크를 의미
+
+    하이퍼 링크는 앵커 요소에 href 속성이 있는 것을 의미합니다.
+
+    ```html
+    <style>
+    	a:link { color: blue; }
+    	a:visited { color : gray; }
+    </style>
+
+    ...
+    <body>
+    	<a href="http://www.google.com">구글</a>
+    	<a href="http://www.naver.com">네이버</a>
+    	<a href="http://www.daum.com">다음</a>
+    </body>
+    ```
+
+    ### 사용자 동작과 관련된 가상 클래스
+
+    이 가상 클래스들도 주로 `<a>`에 많이 쓰입니다.
+    `<a>`에만 쓸 수 있는 것은 아니며, 이 조건에 맞는 상황이 되는 요소들은 다 사용이 가능합니다.
+
+    - :focus : 현재 입력 초점을 갖고 있는 요소에 적용
+    - :hover : 마우스 포인터가 위치해 있는 요소에 적용
+    - :active : 사용자의 입력에 의해 활성화된 요소에 적용
+
+    ```html
+    <style>
+    	a:focus { background-color: yellow; }
+    	a:hover { font-weight: bold; }
+    	a:active { color: red; }
+    </style>
+
+    ...
+    <body>
+    	<a href="http://www.google.com">구글</a>
+    	<a href="http://www.naver.com">네이버</a>
+    	<a href="http://www.daum.com">다음</a>
+    </body>
+    ```
+
+    :focus 는 현재 입력 초점을 가진 요소에 적용됩니다.
+    focus(초점)는 지금 현재 선택을 받는 것을 의미합니다.
+    예를 들면, 입력 폼 요소에 텍스트를 입력하려고 마우스를 클릭해서 커서를 입력 폼 위에 올려놓으면 그때 입력 폼 요소가 초점을 받는 상태입니다.
+    또 키보드의 탭(tab) 키를 이용해서 요소를 탐색하다 보면 링크나 버튼에 점선 테두리가 이동하는 것을 볼 수 있는데, 점선 테두리가 위치하는 것도 초점을 받은 상태입니다.
+
+    :hover 는 마우스 커서가 있는 요소에 적용됩니다. (마우스를 올렸을 때를 의미합니다.)
+
+    :active 는 사용자 입력으로 활성화된 요소를 의미합니다
+    예를 들면, `<a>`를 클릭할 때 또는 `<button>`을 눌렀을 때처럼 순간적으로 활성화 됩니다.
+
+    ---
+
+    ### 참고자료
+
+    [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+
+    [CSS Pseudo-classes](https://www.w3schools.com/css/css_pseudo_classes.asp)
