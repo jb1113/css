@@ -595,6 +595,74 @@
     :active 는 사용자 입력으로 활성화된 요소를 의미합니다
     예를 들면, `<a>`를 클릭할 때 또는 `<button>`을 눌렀을 때처럼 순간적으로 활성화 됩니다.
 
+    ### 가상 요소(pseudo element)
+
+    가상 요소는 가상 클래스와 비슷합니다. 다만 클래스가 아닌 요소라는 점만 다릅니다.
+    가상 요소는 현재 HTML 코드에 존재하지 않는 문서 구조 즉, 문서에 존재하지 않는 요소에 내용을 추가할 수도 있고 스타일을 부여할 수도 있습니다.
+    가상 요소도 가상 클래스처럼 문서 내에 보이지 않지만 미리 정의한 위치에 삽입되도록 약속이 되어 있습니다.
+
+    예를 들어, 가장 자주 쓰이는 가상 요소는 요소의 앞이나 뒤에 별도의 내용을 추가하는 것입니다.
+    이때 추가되는 새 콘텐츠는 HTML 코드에 직접 추가되지 않고 브라우저 화면에만 나타납니다.
+
+    ```css
+    ::pseudo-element {
+    	property: value;
+    }
+    ```
+
+    가상 요소도 가상 클래스와 마찬가지로 콜론(:)을 사용하여 나타냈지만, CSS3 부터는 가상 클래스와 가상 요소를 구분하기 위해 가상 요소에는 더블 콜론(::) 기호를 사용하기로 했습니다.
+    하지만 하위 브라우저에서 :: 문법을 지원하지 않는 문제가 있으므로 상황에 따라 : 기호를 사용하셔야 합니다.
+
+    대표적인 가상 요소의 사용법은 아래와 같습니다.
+
+    - :before : 가장 앞에 요소를 삽입
+    - :after : 가장 뒤에 요소를 삽입
+    - :first-line : 요소의 첫 번째 줄에 있는 텍스트
+    - :first-letter : 블록 레벨 요소의 첫 번째 문자
+
+    ```html
+    <style>
+    	p::before { color: red; content: "before 가상 요소를 이용하여 내용 삽입"; }
+    	p::after { color: blue; content: "after 가상 요소를 이용하여 내용 삽입"; }
+    	p::first-line { font-weight: bold; }
+    	p::first-letter { font-size: 3em; }
+    </style>
+
+    ...
+    <body>
+    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </body>
+    ```
+
+    :before 와 :after 가상 요소는 애초에 내용이 없는 상태로 생성되기 때문에 내용을 넣기 위해서는 content 속성을 이용해야 합니다.
+    실제 HTML 코드에는 나타나지 않지만, before와 after가 어떻게 동작하는지 이해를 돕기 위해 코드를 아래와 같이 변경했습니다.
+
+    ```html
+    <body>
+    	<p>
+    		<before>before 가상 요소를 이용하여 내용 삽입</before>
+    		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    		<after>after 가상 요소를 이용하여 내용 삽입</after>
+    	</p>
+    </body>
+    ```
+
+    눈에 보이지 않지만 내부에서 이처럼 요소가 생성됩니다.
+    first-line과 first-letter도 마찬가지로 아래 코드와 같은 것으로 생각하면 됩니다.
+
+    ```html
+    <body>
+    	<p>
+    		<!-- 모니터 가로 해상도에 따라 요소가 포함하는 내용이 변동됩니다. -->
+    		<!-- line의 끝은 모니터에 표시된 한 줄을 의미합니다. -->
+    		<first-line>Lorem ipsum dolor sit amet, (..어딘가쯤..)</first-line>consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    	</p>
+    	<p>
+    		<first-letter>L</first-letter>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    	</p>
+    </body>
+    ```
+
     ---
 
     ### 참고자료
@@ -602,3 +670,13 @@
     [Pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
     [CSS Pseudo-classes](https://www.w3schools.com/css/css_pseudo_classes.asp)
+
+    [Pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+
+    [CSS Pseudo-elements](https://www.w3schools.com/css/css_pseudo_elements.asp)
+
+    [content](https://developer.mozilla.org/en-US/docs/Web/CSS/content)
+
+    [CSS Content Property](https://www.w3schools.com/cssref/pr_gen_content.asp)
+
+    [반드시 기억해야 하는 CSS 선택자 30개](https://code.tutsplus.com/ko/tutorials/the-30-css-selectors-you-must-memorize--net-16048)
