@@ -93,8 +93,140 @@
 
     ---
 
+    ### 실습 코드
+
+    ```html
+    div { font-size : 16px; }
+    .px { font-size : 16px; }
+    .pt { font-size : 12pt; }
+    .percent { font-size : 100%; }
+    .em { font-size : 1em; }
+
+    ...
+    <div>
+    	<p class="px">단위 16px로 선언된 텍스트</p>
+    	<p class="pt">단위 12pt로 선언된 텍스트</p>
+    	<p class="percent">단위 100%로 선언된 텍스트</p>
+    	<p class="em">단위 1em로 선언된 텍스트</p>
+    </div>
+    ```
+
+    ---
+
     ### 참고자료
 
     [CSS values and units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units)
 
     [CSS Units](https://www.w3schools.com/cssref/css_units.asp)
+
+- 색상
+
+    폰트의 색상 값을 적용할 때 사용하는 속성은 color 속성입니다.
+    color 속성은 값으로 색상 값을 받습니다.
+    색상 값은 다양한 형태로 적용할 수 있으며 값의 형태에 따라 선언하는 방식이 조금 다릅니다.
+    색상 값 적용 방식은 색상과 관련된 다른 속성에서도 동일하게 적용됩니다.
+
+    ### color 속성
+
+    폰트의 색상 값을 적용할 때 사용하는 속성입니다.
+
+    ```css
+    h1 { color : 색상 값; }
+    ```
+
+    ### 색상 값 지정 방식
+
+    - 컬러 키워드
+    CSS 자체에서 사용 가능한 문자 식별자 입니다.
+    red, blue, black 등과 같이 미리 정의 되어있는 키워드를 이용해 색상을 표현할 수 있습니다. (참고. transparent는 투명을 나타내는 키워드)
+    - 16 진법 (#RRGGBB)
+    6자리의 16진수(0-9, A-F)는 각각 두 자리씩 세 가지 색상(RGB)을 나타냅니다.
+    첫 번째 두 자리는 적색(RR), 가운데 두 자리는 녹색(GG), 마지막 두 자리는 청색(BB)을 의미합니다.
+    각 자리의 알파벳은 대소문자를 구분하지 않습니다.
+    - 16 진법 (#RGB)
+    6자리의 16진수에서 각각의 두 자리가 같은 값을 가지면 3자리로 축약하여 사용할 수 있습니다.
+    예를 들어, #AA11CC는 #A1C로 축약하여 사용할 수 있습니다.
+    - RGB()
+    RGB 값은 rgb(R, G, B)의 형태로 각 변수 값(R 적색, G 녹색, B 청색)의 강도를 정의합니다.
+    0 ~ 255의 정수로 된 값을 지정할 수 있으며, 0 → 255는 검정 → 흰색으로 값의 변화를 나타냅니다.
+    - RGBA()
+    RGBA 값은 기존 RGB에서 A값이 추가된 형태입니다.
+    rgb(R, G, B, A)의 형태로 각 변수는 (R 적색, G 녹색, B 청색, A 투명도)의 강도를 정의합니다.
+    A 값은 0 ~ 1 사이의 값을 지정할 수 있으며, 0.5와 같이 소수점 표기도 가능합니다.
+    0 → 1은 투명 → 불투명으로 값의 변화를 나타냅니다.
+
+    ```css
+    body { color: black; } /* color names */
+    body { color: #000000; } /* Hexadecimal colors */
+    body { color: #000; } /* Hexadecimal colors */
+    body { color: rgb(0,0,0); } /* (red, green, blue / 0~255) */
+    body { color: rgba(0,0,0,1); } /* (red, green, blue, alpha / 0~255, 0~1) */
+    /* As HSL values (CSS3) */
+    /* As HWB values (CSS4) */
+    ```
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <style>
+    	div { height: 50px; width: 100px; }
+    <style>
+
+    <body>
+    	<h1>Colors can be set using hexadecimal values</h1>
+
+    	<div style="background-color: #ff0000"></div> <!-- Red -->
+    	<div style="background-color: #00ff00"></div> <!-- Green -->
+    	<div style="background-color: #0000ff"></div> <!-- Blue -->
+    	
+    	<h1 style="color: #FF0000">Heading</h1> <!-- Red -->
+    	<h1 style="color: #00FF00">Heading</h1> <!-- Green -->
+    	<h1 style="color: #0000FF">Heading</h1> <!-- Blue -->
+    </body>
+    ```
+
+    ```html
+    <style>
+    	div { height: 50px; width: 100px; }
+    <style>
+
+    <body>
+    	<h1>Colors can be set using RGB values</h1>
+
+    	<div style="background-color: rgb(255,0,0)"></div> <!-- Red -->
+    	<div style="background-color: rgb(0,255,0)"></div> <!-- Green -->
+    	<div style="background-color: rgb(0,0,255)"></div> <!-- Blue -->
+    	
+    	<h1 style="color: rgb(255,0,0)">Heading</h1> <!-- Red -->
+    	<h1 style="color: rgb(0,255,0)">Heading</h1> <!-- Green -->
+    	<h1 style="color: rgb(0,0,255)">Heading</h1> <!-- Blue -->
+    </body>
+    ```
+
+    ```html
+    <style>
+    	div { height: 50px; width: 100px; }
+    <style>
+
+    <body>
+    	<h1>Colors can be set using RGBA values</h1>
+
+    	<div style="background-color: rgba(255,0,0,0)"></div> <!-- transparent -->
+    	<div style="background-color: rgba(255,0,0,0.5)"></div>
+    	<div style="background-color: rgba(255,0,0,1)"></div> <!-- opacity -->
+    	
+    	<h1 style="color: rgba(255,0,0,0)">Heading</h1> <!-- transparent -->
+    	<h1 style="color: rgba(255,0,0,0.5)">Heading</h1>
+    	<h1 style="color: rgba(255,0,0,1)">Heading</h1> <!-- opacity -->
+    </body>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
+
+    [CSS Colors](https://www.w3schools.com/css/css3_colors.asp)
