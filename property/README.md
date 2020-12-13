@@ -136,24 +136,61 @@
 
     ### 색상 값 지정 방식
 
-    - 컬러 키워드
+    ### 컬러 키워드
+
     CSS 자체에서 사용 가능한 문자 식별자 입니다.
     red, blue, black 등과 같이 미리 정의 되어있는 키워드를 이용해 색상을 표현할 수 있습니다. (참고. transparent는 투명을 나타내는 키워드)
-    - 16 진법 (#RRGGBB)
+
+    ```css
+    body { color: black; } /* color names */
+    ```
+
+    ### 16 진법 (#RRGGBB)
+
     6자리의 16진수(0-9, A-F)는 각각 두 자리씩 세 가지 색상(RGB)을 나타냅니다.
+
+    ```css
+    body { color: #000000; } /* Hexadecimal colors */
+    ```
+
     첫 번째 두 자리는 적색(RR), 가운데 두 자리는 녹색(GG), 마지막 두 자리는 청색(BB)을 의미합니다.
     각 자리의 알파벳은 대소문자를 구분하지 않습니다.
-    - 16 진법 (#RGB)
+
+    ### 16 진법 (#RGB)
+
     6자리의 16진수에서 각각의 두 자리가 같은 값을 가지면 3자리로 축약하여 사용할 수 있습니다.
+
+    ```css
+    body { color: #000; } /* Hexadecimal colors */
+    ```
+
     예를 들어, #AA11CC는 #A1C로 축약하여 사용할 수 있습니다.
-    - RGB()
+
+    ### RGB()
+
     RGB 값은 rgb(R, G, B)의 형태로 각 변수 값(R 적색, G 녹색, B 청색)의 강도를 정의합니다.
+
+    ```css
+    body { color: rgb(0,0,0); } /* (red, green, blue / 0~255) */
+    ```
+
     0 ~ 255의 정수로 된 값을 지정할 수 있으며, 0 → 255는 검정 → 흰색으로 값의 변화를 나타냅니다.
-    - RGBA()
+
+    ### RGBA()
+
     RGBA 값은 기존 RGB에서 A값이 추가된 형태입니다.
     rgb(R, G, B, A)의 형태로 각 변수는 (R 적색, G 녹색, B 청색, A 투명도)의 강도를 정의합니다.
+
+    ```css
+    body { color: rgba(0,0,0,1); } /* (red, green, blue, alpha / 0~255, 0~1) */
+    ```
+
     A 값은 0 ~ 1 사이의 값을 지정할 수 있으며, 0.5와 같이 소수점 표기도 가능합니다.
     0 → 1은 투명 → 불투명으로 값의 변화를 나타냅니다.
+
+    ---
+
+    ### 실습 코드
 
     ```css
     body { color: black; } /* color names */
@@ -164,10 +201,6 @@
     /* As HSL values (CSS3) */
     /* As HWB values (CSS4) */
     ```
-
-    ---
-
-    ### 실습 코드
 
     ```html
     <style>
@@ -238,24 +271,108 @@
 
     ### background 관련 속성
 
-    - background-color (default=transparent) : 배경의 색상을 지정하는 속성입니다.
+    ### background-color (default=transparent)
+
+    배경의 색상을 지정하는 속성입니다.
     앞서 배운 색상 값 적용 방식과 같습니다.
-    - background-image (default=none) : 배경으로 사용할 이미지의 경로를 지정하는 속성입니다.
+
+    ```css
+    div { background-color : red; } /* color names */
+    span { background-color : #0000FF; } /* Hexadecimal colors */
+
+    ...
+    <div>div 영역입니다</div>
+    <span>span 영역입니다</span>
+    ```
+
+    ### background-image (default=none)
+
+    배경으로 사용할 이미지의 경로를 지정하는 속성입니다.
     url의 경로는 절대 경로, 상대 경로 모두 사용 가능합니다.
+
+    ```css
+    div {
+    	width: 500px;
+    	height: 500px;
+    	background-color: gray; 
+    	background-image: url(../css_logo.png);
+    }
+
+    ...
+    <div>div 영역입니다</div>
+    ```
+
     만약 background-color에 색상이 적용된 상태에서 background-image로 사용된 이미지에 투명한 부분이 있다면, 그 부분에 background-color 색상이 노출됩니다.
-    - background-repeat (default=repeat) : 이미지의 반복 여부와 방향을 지정하는 속성입니다.
+
+    ### background-repeat (default=repeat)
+
+    이미지의 반복 여부와 방향을 지정하는 속성입니다.
     기본값이 repeat이기 때문에 따로 설정하지 않으면 x, y축으로 반복되어서 표시됩니다.
+
+    ```css
+    div {
+    	width: 500px;
+    	height: 500px;
+    	background-color: gray;
+    	background-image: url(../css_logo.png);
+    	background-repeat: no-repeat;
+    }
+
+    ...
+    <div>div 영역입니다</div>
+    ```
+
     background-repeat의 값으로 사용할 수 있는 것들은 다음과 같습니다.
+
     - repeat : x, y 축으로 모두 반복합니다.
     - repeat-x : x 축 방향으로만 반복합니다.
     - repeat-y : y 축 방향으로만 반복합니다.
     - no-repeat : 이미지를 반복하지 않습니다.
-    - background-position (default=0%) : 요소에서 배경 이미지의 위치를 지정하는 속성입니다. x축, y축으로부터의 위치를 지정할 수 있으며 값의 선언 순서는 x축, y축으로부터의 간격입니다. 만일 한쪽만 지정된다면 나머지는 중앙 값(center)으로 적용됩니다.
+
+    ### background-position (default=0%)
+
+    요소에서 배경 이미지의 위치를 지정하는 속성입니다. x축, y축으로부터의 위치를 지정할 수 있으며 값의 선언 순서는 x축, y축으로부터의 간격입니다. 만일 한쪽만 지정된다면 나머지는 중앙 값(center)으로 적용됩니다.
+
+    ```css
+    div {
+    	width: 500px;
+    	height: 500px;
+    	background-image: url(../css_logo.png);
+    	background-repeat: no-repeat;
+    	background-position: center center;
+    }
+
+    ...
+    <div>div 영역입니다</div>
+    ```
+
     - % : 기준으로부터 % 만큼 떨어진 지점과 이미지의 % 지점이 일치하는 곳에 위치시킵니다.
     - px : 기준으로부터 px 만큼 떨어진 지점과 이미지의 (0,0) 지점이 일치하는 곳에 위치시킵니다.
     - 키워드 : top, left, right, bottom, center 키워드를 사용할 수 있습니다.
     키워드는 선언 순서와 관계없이 top, bottom은 y축 기준으로 하며 left, right는 x축으르 기준으로 합니다.
-    - background-attachment (default=scroll) : 화면 스크롤에 따른 배경 이미지의 움직임 여부를 지정하는 속성입니다.
+
+    ### background-attachment (default=scroll)
+
+    화면 스크롤에 따른 배경 이미지의 움직임 여부를 지정하는 속성입니다.
+
+    ```css
+    div {
+    	width: 500px;
+    	height: 500px;
+    	background-image: url(../css_logo.png);
+    	background-repeat: no-repeat;
+    	background-position: center center;
+    	background-attachment: fixed;
+    }
+
+    ...
+    <div>The background-image scrolls with the page. Try to scroll down.</div>
+    <div>The background-image scrolls with the page. Try to scroll down.</div>
+    <div>The background-image scrolls with the page. Try to scroll down.</div>
+    ...
+    <div>The background-image scrolls with the page. Try to scroll down.</div>
+    ```
+
     - scroll : 배경 이미지는 요소 자체를 기준으로 고정되어 있으며 내용과 함께 스크롤 되지 않습니다.
     - local : 배경 이미지는 요소의 내용을 기준으로 고정되어 있으며 내용과 함께 스크롤 됩니다.
     - fixed : 배경 이미지는 뷰포트를 기준으로 고정되어 있으며 스크롤에 영향을 받지 않습니다.
@@ -265,6 +382,8 @@
 
     ```css
     background: [-color][-image][-repeat][-attachment][-position];
+
+    background: black url("../css_logo.png") no-repeat fixed center;
     ```
 
     ---
