@@ -66,3 +66,5 @@
     [The box model](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
 
     [CSS Box Model](https://www.w3schools.com/css/css_boxmodel.asp)
+
+- border
