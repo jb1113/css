@@ -71,3 +71,5 @@
 
 - padding
 - margin
+- width
+- height
