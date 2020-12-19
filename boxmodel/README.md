@@ -176,3 +176,5 @@
     [border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
 
     [CSS Borders](https://www.w3schools.com/css/css_border.asp)
+
+- padding
