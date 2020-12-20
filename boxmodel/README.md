@@ -141,8 +141,8 @@
     border-left: 6px solid red; /* 보더 왼쪽 */
     border-width: 6px; /* 보더 두께 */
     border-width: 6px 3px; /* 보더 상하, 좌우 두께 */
-    border-width: 6px, 3px, 4px /* 보더 상, 우(좌), 하 두께 */
-    border-width: 6px, 3px, 4px, 1px /* 보더 상, 우, 하, 좌 두께 */
+    border-width: 6px 3px 4px /* 보더 상, 우(좌), 하 두께 */
+    border-width: 6px 3px 4px 1px /* 보더 상, 우, 하, 좌 두께 */
     ```
 
     ```html
