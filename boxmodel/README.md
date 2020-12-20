@@ -178,3 +178,108 @@
     [CSS Borders](https://www.w3schools.com/css/css_border.asp)
 
 - padding
+
+    padding 영역은 border와 content 사이의 여백을 말합니다.
+
+    ### padding 관련 속성
+
+    padding의 기본값은 0이며, 속성 값으로 길이 단위인 length, 요소의 width에 상대적인 크기인 percent, initial, inherit으로 선언할 수 있습니다. (음수 값은 허용되지 않습니다.)
+    요소 각 면에 padding을 지정하는 속성으로 padding-top, padding-right, padding-bottom, padding-left가 있습니다.
+
+    ```css
+    padding: length|percent|initial|inherit;
+    ```
+
+    ### padding-top
+
+    content 영역의 위쪽 여백을 지정합니다.
+
+    ```css
+    padding-top: 0;
+    ```
+
+    ### padding-right
+
+    content 영역의 오른쪽 여백을 지정합니다.
+
+    ```css
+    padding-right: 10px;
+    ```
+
+    ### padding-bottom
+
+    content 영역의 아래쪽 여백을 지정합니다.
+
+    ```css
+    padding-bottom: 20%;
+    ```
+
+    ### padding-left
+
+    content 영역의 왼쪽 여백을 지정합니다.
+
+    ```css
+    padding-left: 30px;
+    ```
+
+    padding-top,right,bottom,left를 사용하여 요소 네면 모두에 대해 다른 padding 값을 설정할 수 있습니다.
+
+    ### padding 축약
+
+    ```css
+    padding: [-top][-right][-bottom][-left];
+    ```
+
+    기본적으로 padding의 4가지 속성을 위와 같이 축약하여 사용할 수 있습니다.
+    속성의 순서는 상, 우, 하, 좌 순으로 고정되어 있으며 위쪽을 기준으로 시계방향으로 선언합니다.
+
+    축약형으로 사용할 때 반드시 4개의 속성에 대한 값을 모두 적어야 하는 것은 아니며 속성 값으로 1~4개의 값을 사용할 수 있으며 border에서는 축약형 사용 시 정의되지 않은 속성값에 대해서 기본값이 적용되었지만, padding은 조금 다른 방식으로 동작합니다.
+    그 이유로 상하, 좌우 영역의 값이 같은 경우 하나로 합쳐서 적용할 수 있기 때문입니다.
+
+    ```css
+    /* 상,우,하,좌 네 면의 값이 모두 다른 경우 */
+    padding: 10px 20px 30px 40px;
+    /* 좌,우 값이 같고 상,하 값이 다른 경우 */
+    padding: 10px 20px 30px; /* 좌,우의 값은 20px */
+    /* 상,하 값이 같고 좌,우 값이 같은 경우 */
+    padding: 10px 20px; /* 상,하의 값은 10px 좌,우 동일하게 20px */
+    /* 상,우,하,좌 값이 모두 같은 경우 */
+    padding: 10px; /* 상,우,하,좌의 값은 10px */
+    ```
+
+    참고로 CSS에서 0 값에 대해서는 단위를 따로 적지 않습니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>padding</title>
+    		<style>
+    			div {
+    				padding-top: 10px;
+    				padding-right: 20px;
+    				padding-bottom: 30px;
+    				padding-left: 40px;
+    				
+    				/* 축약형 */
+    				border: 10px 20px 30px 40px;
+    		</style>
+    	</head>
+    	<body>
+    		<div>padding property</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)
+
+    [CSS Padding](https://www.w3schools.com/css/css_padding.asp)
