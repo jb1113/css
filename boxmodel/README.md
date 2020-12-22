@@ -268,6 +268,7 @@
     				
     				/* 축약형 */
     				border: 10px 20px 30px 40px;
+    			}
     		</style>
     	</head>
     	<body>
@@ -285,3 +286,154 @@
     [CSS Padding](https://www.w3schools.com/css/css_padding.asp)
 
 - margin
+
+    margin 영역은 border 영역을 다른 요소와 구별하기 위해 쓰이는 빈 영역입니다.
+    즉, 이 말은 다른 요소와의 간격을 만들 수 있다는 것을 뜻합니다.
+
+    ### margin 관련 속성
+
+    margin의 기본값은 0이며, 속성 값으로 길이의 단위인 length, initial, inherit을 선언할 수 있으며, padding과 다르게 auto 값을 선언할 수 있습니다. (padding과 달리 음수 값을 지정할 수 있습니다.)
+
+    요소 각 면에 margin을 지정하는 속성으로 margin-top, margin-right, margin-bottom, margin-left가 있습니다.
+
+    ```css
+    margin: length|percent|auto|initial|inherit;
+    ```
+
+    auto의 경우 브라우저에 의해 계산된 값이 적용 됩니다.
+
+    ### margin-top
+
+    border 영역의 위쪽 여백을 지정합니다.
+
+    ```css
+    margin-top: 0;
+    ```
+
+    ### margin-right
+
+    border 영역의 오른쪽 여백을 지정합니다.
+
+    ```css
+    margin-right: 10px;
+    ```
+
+    ### margin-bottom
+
+    border 영역의 아래쪽 여백을 지정합니다.
+
+    ```css
+    margin-bottom: 20%;
+    ```
+
+    ### margin-left
+
+    border 영역의 왼쪽 여백을 지정합니다.
+
+    ```css
+    margin-left: 30px;
+    ```
+
+    margin-top,right,bottom,left를 사용하여 요소 네면 모두에 대해 다른 margin 값을 설정할 수 있습니다.
+
+    ### margin 축약
+
+    ```css
+    margin: [-top][-right][-bottom][-left]
+    ```
+
+    기본적으로 margin의 4가지 속성을 위와 같이 축약하여 사용할 수 있습니다.
+    속성의 순서는 상, 우, 하, 좌 순으로 고정되어 있으며 위쪽을 기준으로 시계방향으로 선언합니다.
+
+    ```css
+    /* 상,우,하,좌 네 면의 값이 모두 다른 경우 */
+    margin: 10px 20px 30px 40px;
+    /* 좌,우 값이 같고 상,하 값이 다른 경우 */
+    margin: 10px 20px 30px; /* 좌,우의 값은 20px */
+    /* 상,하 값이 같고 좌,우 값이 같은 경우 */
+    margin: 10px 20px; /* 상,하의 값은 10px 좌,우 동일하게 20px */
+    /* 상,우,하,좌 값이 모두 같은 경우 */
+    margin: auto; /* 상,우,하,좌의 값은 auto */
+    ```
+
+    padding과 마찬가지로 축약하여 사용할 수 있고 상하, 좌우에 대해서 값이 같으면 하나로 합하여 사용할 수 있습니다.
+    margin에서는 수치 이외에 사용할 수 있는 auto 값이 있습니다.
+
+    ### margin auto
+
+    기본적으로 브라우저에 의해 계산이 이루어지는데, 대부분의 경우 0(기본값) 또는 요소의 해당 측면에서 사용 가능한 공간과 같은 값을 가집니다.
+    이를 활용하여 수평 중앙 정렬을 할 수 있습니다.
+
+    ```css
+    margin-left: auto;
+    margin-right: auto;
+    ```
+
+    좌우의 margin이 모두 auto로 적용 되었다면, 브라우저는 요소가 가질 수 있는 가로 영역에서 자신의 width를 제외한 나머지 여백의 크기에 대해 균등 분할하여 적용합니다.
+
+    주의할 점은 수평 중앙 정렬을 하는 경우 width를 갖고 있는 요소에만 적용을 할 수 있다는 점입니다.
+    만약 width 값이 없는 요소에 적용할 경우 아무런 기능을 할 수 없습니다.
+    왜냐하면 브라우저가 정렬을 시켜주려면 width 값이 필요한데 width 값이 없는 경우 어떤 것을 기준으로 어떻게 정렬을 시켜줘야 할 지 알 수 없기 때문입니다.
+    때문에 요소의 width 값이 반드시 필요하다는 점을 알고있어야 합니다. 
+
+    상하의 경우 수직 중앙 정렬이 되지 않으며, 기본적인 flow의 박스 형태의 나열을 벗어나는 상황에 대해서 적용이 됩니다. 이는 조금 더 심화적인 개념이 필요하므로 기초에서는 수평 정렬에 대한 개념을 확실히 알고 넘어가도록 합니다.
+
+    ### margin collapse (마진 병합)
+
+    마진 병합은 인접한 두 개 이상의 수직 방향 박스의 마진이 하나로 합쳐지는 것을 의미합니다.
+    마진 병합은 다음 세 가지 경우에 일어납니다.
+
+    1. 두 요소가 상하로 인접한 경우 : 위 요소의 하단 마진과 아래 요소의 상단 마진의 병합이 일어납니다.
+    2. 부모 요소와 첫 번째 자식 요소 또는 마지막 자식 요소
+    2-1. 부모 요소의 상단 마진과 첫 번째 자식 요소의 상단 마진 병합이 일어납니다.
+    2-2. 부모 요소의 하단 마진과 마지막 자식 요소의 하단 마진 병합이 일어납니다.
+    3. 내용이 없는 빈 요소의 경우 : 해당 요소의 상단 마진과 하단 마진의 병합이 일어납니다.
+
+    마진 병합은 수직 방향으로만 이루어지며, 좌우에 대해서는 일어나지 않습니다.
+    마진 병합은 마진이 반드시 맞닿아야 발생하기 때문에 2, 3번째의 경우 패딩 및 보더가 없어야 합니다.
+
+    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_107%2F1538296799435DvOPe_PNG%2F2018-09-30_17%253B39%253B27.PNG](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_107%2F1538296799435DvOPe_PNG%2F2018-09-30_17%253B39%253B27.PNG)
+
+    마진 병합을 활용하여 첫 번째와 두 번째 컴포넌트의 조합이 다양한 경우 여백을 다르게 사용할 수 있습니다.
+
+    margin collapse는 절대 위치나 상대 위치가 주어진 요소들에서는 발생하지 않습니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>margin</title>
+    		<style>
+    			div {
+    				margin-top: 10px;
+    				margin-right: 20px;
+    				margin-bottom: 30px;
+    				margin-left: 40px;
+    				
+    				/* 축약형 */
+    				margin: 10px 20px 30px 40px;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div>margin property</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)
+
+    [CSS Margin](https://www.w3schools.com/css/css_margin.asp)
+
+    [Mastering margin collapsing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)
+
+    [CSS Margin Collapse](https://www.w3schools.com/css/css_margin_collapse.asp)
