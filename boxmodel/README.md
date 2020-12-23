@@ -437,3 +437,5 @@
     [Mastering margin collapsing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)
 
     [CSS Margin Collapse](https://www.w3schools.com/css/css_margin_collapse.asp)
+
+- padding & margin
