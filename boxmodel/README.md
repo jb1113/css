@@ -11,7 +11,7 @@
 
     ### BOX MODEL의 구성
 
-    ![https://www.edwith.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_36%2F1538294754143G8s2p_PNG%2F1234.png](https://www.edwith.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_36%2F1538294754143G8s2p_PNG%2F1234.png)
+    ![boxmodel](../boxmodel.png)
 
     ### Content 영역
 
