@@ -392,7 +392,7 @@
     마진 병합은 수직 방향으로만 이루어지며, 좌우에 대해서는 일어나지 않습니다.
     마진 병합은 마진이 반드시 맞닿아야 발생하기 때문에 2, 3번째의 경우 패딩 및 보더가 없어야 합니다.
 
-    ![https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_107%2F1538296799435DvOPe_PNG%2F2018-09-30_17%253B39%253B27.PNG](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_107%2F1538296799435DvOPe_PNG%2F2018-09-30_17%253B39%253B27.PNG)
+    ![margin collapse](../margin_collapse.png)
 
     마진 병합을 활용하여 첫 번째와 두 번째 컴포넌트의 조합이 다양한 경우 여백을 다르게 사용할 수 있습니다.
 
