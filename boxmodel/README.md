@@ -439,3 +439,62 @@
     [CSS Margin Collapse](https://www.w3schools.com/css/css_margin_collapse.asp)
 
 - padding & margin
+
+    padding과 margin 두 속성 모두 여백을 선언할때 적용하는 속성입니다.
+    그러나, border의 경계가 명확하게 표시되지 않으면 어떤 속성으로 필요한 여백을 표현할지 헷갈릴 수 있습니다.
+    이럴 경우 자신이 원하는 속성을 이용해서 여백을 표현하여도 상관은 없지만, 엄연히 다른 속성이기 때문에 두 속성의 차이를 명확히 알고 사용하는 것이 좋습니다.
+
+    ### paddng과 margin의 비교
+
+    ```
+             양수  음수  auto      단위
+    padding   O    X    X    px, %, ...
+    margin    O    O    O    px, %, ...
+    ```
+
+    ### % 값의 사용과 기준점
+
+    px과 같은 고정적인 단위 외에도 %라는 상대적인 단위를 사용할 수 있습니다.
+    %는 요소의 크기를 기준으로 상대적인 값을 결정짓게 됩니다.
+    일반적으로 생각했을 때 상, 하는 height 값에 대해서 좌, 우는 width 값에 대해서 크기가 계산될 것 같지만 실제로는 그렇지 않습니다.
+    %는 상, 하, 좌, 우의 방향에 관계없이 모두 요소의 width 값을 기준으로 상대적인 값이 결정됩니다.
+
+    ```css
+    div {
+    	width: 100px;
+    	height: 200px;
+    	padding: 10%;
+    	margin: 10%;
+    }
+    ```
+
+    만약 위와 같은 코드의 경우 padding과 margin 모두 상, 하는 20px, 좌, 우는 10px로 적용 될 것 같지만 실제로 적용되는 값은 상, 하, 좌, 우 모두 width 100px의 10%인 10px이 적용 됩니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>padding & margin</title>
+    		<style>
+    			div {
+    				width: 100px;
+    				height: 200px;
+    				padding: 10% /* width 값의 10%인 10px */
+    				/* padding: -10px auto; 음수, auto 값 사용 불가 */
+
+    				margin: 10% /* width 값의 10%인 10px */
+    				margin: auto /* auto 사용 가능 */
+    				margin: -10px; /* 음수 값 사용 가능 */
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div>compare padding and margin </div>
+    	</body>
+    </html>
+    ```
