@@ -159,6 +159,7 @@
     				
     				/* 축약형 */
     				border: 10px solid #000;
+			}
     		</style>
     	</head>
     	<body>
