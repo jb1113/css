@@ -559,7 +559,15 @@
 
     결국 %의 경우에는 부모의 width 값에 대해서 계산되어 지는데, 이때 부모의 width는 content 영역의 크기를 의미합니다.
     부모의 border와 padding까지 더해진 요소의 전체 크기가 아닌 content 영역의 크기가 기준이라는 것을 헷갈리면 안됩니다.
+    ###### parent
+    ![parent width](./parent_width.png)
 
+    ![parent boxmodel](./parent_boxmodel.png)
+
+    ###### child
+    ![child width](./child_width.png)
+
+    ![child boxmodel](./child_boxmodel.png)
     ---
 
     ### 심화
