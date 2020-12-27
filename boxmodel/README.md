@@ -499,3 +499,114 @@
     	</body>
     </html>
     ```
+
+- width
+
+    width 속성은 요소의 가로 크기를 정의하는 속성입니다.
+    정확히는 content 영역의 너비를 지정하는 것을 의미합니다.
+    크기를 지정한다는 것은 같지만, 요소의 종류나 특징에 따라서 다르게 동작하기도 합니다.
+
+    ### width 관련 속성
+
+    width의 기본값은 auto이며, length, percent, initial, inherit으로 선언할 수 있습니다.
+
+    ```css
+    width: auto|length|percent|initial|inherit;
+    ```
+
+    요소의 가로 크기를 지정하는 width 속성은 **인라인 레벨 요소를 제외**한 모든 요소에 적용됩니다.
+
+    width는 content 영역의 너비를 지정할 때 사용하는데 이때 auto가 아닌 특정한 값을 지정하여 사용하면, 그 크기는 box model 영역에서 margin 영역을 제외한 모든 영역에 대해 영향을 받습니다. (content, border, padding)
+
+    ```css
+    .box {
+    	width: 100px;
+    	padding: 20px;
+    	border: 10px solid black;
+    }
+
+    ...
+    <div class="box">width</div>
+    ```
+
+    위와 같이 선언되어 있다면, 요소의 총 가로 크기는 width의 100px과 양쪽 padding의 값 (20 * 2), border 영역 (10 * 2)로 160px이 됩니다.
+
+    > width(100) + padding(20 * 2) + border(10 * 2) = 160 px
+
+    이유는 앞서 언급한 바와 같이 width는 margin을 제외한 content, border, padding 영역에 대해서 영향을 받기 때문입니다.
+
+    ```css
+    .parent {
+    	width: 300px;
+    	border: 20px solid red;
+    }
+
+    .child {
+    	width: 50%;
+    	border: 10px solid blue;
+    	padding: 20px;
+    }
+
+    ...
+    <div class="parent">
+    	<div class="child">
+    		width
+    	</div>
+    </div>
+    ```
+
+    위의 경우 child의 width 값은 parent의 width 값인 300px의 50%인 150px이 child의 content 값이므로, width 값에서 border(10 * 2), padding(20 * 2) 총 60px을 포함한 값인 210px이 child의 크기가 됩니다.
+
+    결국 %의 경우에는 부모의 width 값에 대해서 계산되어 지는데, 이때 부모의 width는 content 영역의 크기를 의미합니다.
+    부모의 border와 padding까지 더해진 요소의 전체 크기가 아닌 content 영역의 크기가 기준이라는 것을 헷갈리면 안됩니다.
+
+    ---
+
+    ### 심화
+
+    width는 기본적으로 content 영역의 너비를 지정합니다. box-sizing 이라는 속성을 이용하여 border, padding 영역을 기준으로 크기를 가질 수 있도록 변경할 수 있습니다.
+
+    부모가 인라인 레벨 요소일 때, 자식(블록 요소)이 width 값에 %를 가지면, 가장 가까운 블록 레벨 조상의 width를 기준으로 계산됩니다.
+    (만일 최상단까지 블록 레벨 요소가 없으면 body를 기준으로 계산됩니다.)
+
+    ---
+
+    ### 실습코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>width</title>
+    		<style>
+    			.parent {
+    				width: 300px;
+    				border: 20px solid red;
+    			}
+    			.child {
+    				width: 50%;
+    				border: 10px solid blue;
+    				padding: 20px;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div class="parent">
+    			<div class="child">
+    				width
+    			</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width)
+
+    [CSS Height and Width](https://www.w3schools.com/css/css_dimension.asp)
+
+    [LBaWqb](https://codepen.io/sunah/pen/LBaWqb)
