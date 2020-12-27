@@ -159,7 +159,7 @@
     				
     				/* 축약형 */
     				border: 10px solid #000;
-			}
+    			}
     		</style>
     	</head>
     	<body>
@@ -615,6 +615,8 @@
     ### 참고자료
 
     [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width)
+
+    [CSS width property](https://www.w3schools.com/cssref/pr_dim_width.asp)
 
     [CSS Height and Width](https://www.w3schools.com/css/css_dimension.asp)
 
