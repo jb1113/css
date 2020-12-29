@@ -516,6 +516,10 @@
 
     요소의 가로 크기를 지정하는 width 속성은 **인라인 레벨 요소를 제외**한 모든 요소에 적용됩니다.
 
+    ### width의 계산
+
+    ### 고정 값
+
     width는 content 영역의 너비를 지정할 때 사용하는데 이때 auto가 아닌 특정한 값을 지정하여 사용하면, 그 크기는 box model 영역에서 margin 영역을 제외한 모든 영역에 대해 영향을 받습니다. (content, border, padding)
 
     ```css
@@ -534,6 +538,8 @@
     > width(100) + padding(20 * 2) + border(10 * 2) = 160 px
 
     이유는 앞서 언급한 바와 같이 width는 margin을 제외한 content, border, padding 영역에 대해서 영향을 받기 때문입니다.
+
+    ### %
 
     ```css
     .parent {
