@@ -626,4 +626,4 @@
 
     [CSS Height and Width](https://www.w3schools.com/css/css_dimension.asp)
 
-    [LBaWqb](https://codepen.io/sunah/pen/LBaWqb)
+    [width property example](https://codepen.io/sunah/pen/LBaWqb)
