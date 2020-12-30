@@ -568,12 +568,12 @@
     ###### parent
     ![parent width](./parent_width.png)
 
-    ![parent boxmodel](./parent_boxmodel.png)
+    ![parent boxmodel](./parent_width_boxmodel.png)
 
     ###### child
     ![child width](./child_width.png)
 
-    ![child boxmodel](./child_boxmodel.png)
+    ![child boxmodel](./child_width_boxmodel.png)
 
     ---
 
