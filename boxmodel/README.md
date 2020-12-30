@@ -627,3 +627,169 @@
     [CSS Height and Width](https://www.w3schools.com/css/css_dimension.asp)
 
     [width property example](https://codepen.io/sunah/pen/LBaWqb)
+
+- height
+
+    height 속성은 요소의 세로 크기를 정의하는 속성입니다.
+    width와 마찬가지로 정확히는 content 영역의 높이를 지정하는 것을 의미합니다.
+    기본적으로는 width의 동작 방식과 같게 동작하지만, % 값의 경우 동작 방식이 조금 다릅니다.
+
+    ### height 관련 속성
+
+    height의 기본값도 width와 동일하게 auto이며, length, percent, initial, inherit으로 선언할 수 있습니다.
+
+    ```css
+    height: auto|length|percent|initial|inherit;
+    ```
+
+    ### height의 계산
+
+    ### 고정 값
+
+    height는 content 영역의 너비를 지정할 때 사용하는데 이때 auto가 아닌 특정한 값을 지정하여 사용하면, width 속성과 동일하게 그 크기는 box model 영역에서 margin 영역을 제외한 모든 영역에 대해 영향을 받습니다. (content, border, padding)
+
+    ```css
+    .box {
+    	width: 100px;
+    	height: 100px;
+    	padding: 10px;
+    	border: 15px solid black;
+    }
+
+    ...
+    <div class="box">width</div>
+    ```
+
+    위와 같이 선언되어 있다면, 요소의 총 세로 크기는 height의 100px과 상,하의 padding 값 (10 * 2), border 영역 (15 * 2)로 150px이 됩니다.
+
+    > height(100) + padding(10 * 2) + border(15 * 2) = 150 px
+
+    이유는 앞서 언급한 바와 같이 height는 margin을 제외한 content, border, padding 영역에 대해서 영향을 받기 때문입니다.
+
+    ### %
+
+    ```css
+    .parent {
+    	width: 300px;
+    	border: 20px solid red;
+    }
+
+    .child {
+    	height: 50%;
+    	border: 10px solid blue;
+    	padding: 20px;
+    	background: gray;
+    }
+
+    ...
+    <div class="parent">
+    	<div class="child">
+    		<p>height 1</p>
+    		<p>height 2</p>
+    		<p>height 3</p>
+    		<p>height 4</p>
+    		<p>height 5</p>
+    	</div>
+    </div>
+    ```
+
+    위의 경우 child의 height 값은 어떻게 될까요?
+    실제 확인해보면, height: auto일 때와 height: 50%일 때의 차이가 없는 것을 확인할 수 있습니다. (직관적인 비교를 위해 background를 적용했습니다.)
+
+    height속성의 경우 percent value에 대한 설명을 보게되면 **"Containing Block의 높이에 대한 백분율로 높이를 정의합니다."** 라고 설명되어 있습니다.
+    여기서 말하는 Containing Block은 부모를 의미한다고 생각하면 됩니다.
+    즉, 현재 위의 코드에서는 부모 parent가 명시적인 높이 값을 가지고 있지 않기 때문에 child의 높이 값에 %를 지정해줘도 적용되지 않았던 것입니다.
+
+    결국 %의 경우에는 부모의 height 값에 대해서 계산되어 지는데, 이때 부모의 height는 content 영역의 크기를 의미합니다.
+    width와 동일하게 부모의 border와 padding까지 더해진 요소의 전체 크기가 아닌 content 영역의 크기가 기준이라는 것을 헷갈리면 안됩니다.
+
+    ```css
+    .parent {
+    	height: 200px;
+    	width: 300px;
+    	border: 20px solid red;
+    }
+
+    .child {
+    	height: 50%;
+    	border: 10px solid blue;
+    	padding: 20px;
+    	background: gray;
+    }
+
+    ...
+    <div class="parent">
+    	<div class="child">
+    		<p>height 1</p>
+    		<p>height 2</p>
+    		<p>height 3</p>
+    		<p>height 4</p>
+    		<p>height 5</p>
+    	</div>
+    </div>
+    ```
+
+    위와 같이 parent에 height를 200px로 명시적으로 지정해주면 child의 높이 값으로 %가 적용되는 것을 확인할 수 있습니다.
+    ###### parent
+    ![parent height](./parent_height.png)
+
+    ![parent boxmodel](./parent_height_boxmodel.png)
+
+    ###### child
+    ![child height](./child_height.png)
+
+    ![child boxmodel](./child_height_boxmodel.png)
+
+    ---
+
+    ### 심화
+
+    height 또한 width와 동일하게 box-sizing 속성을 이용하여 기준값을 border, padding 영역으로 바꿀 수 있습니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>height</title>
+    		<style>
+    			.parent {
+    				height: 200px;
+    				width: 300px;
+    				border: 20px solid red;
+    			}
+    			.child {
+    				height: 50%;
+    				border: 10px solid blue;
+    				padding: 20px;
+    				background: gray;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div class="parent">
+    			<div class="child">
+    				<p>height 1</p>
+    				<p>height 2</p>
+    				<p>height 3</p>
+    				<p>height 4</p>
+    				<p>height 5</p>
+    			</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [height](https://developer.mozilla.org/en-US/docs/Web/CSS/height)
+
+    [CSS height property](https://www.w3schools.com/cssref/pr_dim_height.asp)
+
+    [CSS Height and Width](https://www.w3schools.com/css/css_dimension.asp)
