@@ -12,6 +12,7 @@
     ### BOX MODEL의 구성
 
     ![boxmodel](../boxmodel.png)
+    > 출처 [boxmodel](http://www.boostcourse.org/cs120)
 
     ### Content 영역
 
@@ -394,6 +395,7 @@
     마진 병합은 마진이 반드시 맞닿아야 발생하기 때문에 2, 3번째의 경우 패딩 및 보더가 없어야 합니다.
 
     ![margin collapse](../margin_collapse.png)
+    > 출처 [margin collapse](http://www.boostcourse.org/cs120)
 
     마진 병합을 활용하여 첫 번째와 두 번째 컴포넌트의 조합이 다양한 경우 여백을 다르게 사용할 수 있습니다.
 
