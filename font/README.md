@@ -79,3 +79,111 @@
     [CSS font-family property](https://www.w3schools.com/cssref/pr_font_font-family.asp)
 
     [CSS Fonts](https://www.w3schools.com/css/css_font.asp)
+
+- line-height
+
+    장문의 글에서는 가독성을 위해서 글 사이의 간격을 띄우기도 합니다.
+    이를 행간을 조정한다고 하는데요.
+    line-height 속성을 이용해 이 행간을 조정할 수 있습니다.
+    정확하게는 line-height는 줄의 높이를 의미하는 것이고, 이를 이용해서 행간을 조정할 수 있는 것입니다.
+
+    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_292%2F1537812871995OXjoa_PNG%2F1234.png](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_292%2F1537812871995OXjoa_PNG%2F1234.png)
+
+    행간을 제어할 때 사용하는 속성이라해서 줄 간격으로 생각해 오해할 수 있습니다.
+    줄 바꿈이 되었을 때 윗 줄의 텍스트 하단과 아랫줄의 텍스트 상단까지의 간격이라고 생각할 수도 있지만, line-height 속성으로 제어되는 부분을 line-box라고도 하며 이는 타이포그래피 구조에서 배웠던 [em 박스] + [상, 하단의 여백]까지를 의미합니다.
+
+    ### line-height 속성 (default=normal)
+
+    line-height는 텍스트 라인의 높이를 의미하는 것으로 주로 행간을 제어할 때 사용합니다.
+
+    ```css
+    line-height: normal|number|length|initial|inherit;
+    ```
+
+    - normal : 기본값으로 브라우저의 기본 속성을 따릅니다. 폰트에 따라 브라우저에 따라 다르지만 보통 1.2 정도로 할당되어 있습니다.
+    - number : font-size를 기준으로 설정한 숫자만큼 배율로 적용합니다.
+    - length : px, em 등 고정 수치로 할당할 수 있습니다.
+    - % : font-size를 기준으로 설정한 퍼센트만큼 배율로 적용합니다.
+
+    ### number, %의 차이점
+
+    주의해야 할 것은 line-height의 값으로 number를 선언할 때와 %를 선언할 때의 차이점입니다.
+    두 값 모두 font-size를 기준으로 동작하기 때문에 1이나 100%를 같은 것이라고 생각하고 오해할 수 있습니다. 하지만 두 값은 큰 차이가 있습니다.
+    바로 line-height의 값이 자식 요소로 상속되었을 때의 계산 방식입니다.
+
+    - number : 부모 요소의 숫자 값이 그대로 상속됩니다. 즉, 자식 요소에서도 또 한 번 자식 요소의 font-size를 기준으로 계산된 값을 가집니다.
+    - % : 부모 요소에서 % 값이 그대로 상속되는 것이 아니고, %에 의해 이미 계산된 px 값이 상속됩니다.
+
+    ```css
+    body { font-size: 20px; line-height: 2; } /* line-height = 40px; */
+    body { font-size: 20px; line-height: 200%; } /* line-height = 40px; */
+    ```
+
+    두 경우 모두 `<body>`에 똑같이 line-height: 40px이 적용됩니다.
+    하지만 자식 요소로 `<p>`가 있을 경우에는 달라집니다.
+
+    ```css
+    body { font-size: 20px; line-height: 2; } /* line-height = 40px; */
+    p { font-size: 10px; } /* line-height: 20px; */
+
+    body { font-size: 20px; line-height: 200%; } /* line-height = 40px; */
+    p { font-size: 10px; } /* line-height: 40px; */
+    ```
+
+    이처럼 number의 경우 계산된 값이 아닌 숫자 값을 상속한다는 사실 때문에 숫자 값을 사용하면 부모 엘리먼트에서 계산된 값 대신 비율을 그대로 상속받을수 있으므로, 가능하면 단위가 없는 값을 사용하는 것이 좋습니다.
+
+    ---
+
+    ### 심화
+
+    [visual formatting model](https://developer.mozilla.org/en-US/docs/Web/CSS/Visual_formatting_model)은 document를 처리하고, 시각적으로 표시하는 CSS의 기본 개념입니다.
+    line-box가 어떤 식으로 생성되고 요소의 특성에 따라 어떻게 다른지를 잘 알고 있다면, line-height를 이해하는데 뿐만아니라 다른 속성들을 이해하는데도 많은 도움이 됩니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>border</title>
+    		<style>
+    			.parent {
+    				width: 200px;
+    				font-size: 10px;
+
+    				/* line-height: normal; */
+    				/* line-height: 20px; */
+    				line-height: 2;
+    				/* line-height: 200% */
+    			}
+
+    			.child {
+    				font-size: 20px;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div class="parent">
+    			<div class="child">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    				harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+    				Adipisci, delectus.
+    			</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [line-height](https://developer.mozilla.org/en-US/docs/Web/CSS/line-height)
+
+    [CSS line-height property](https://www.w3schools.com/cssref/pr_dim_line-height.asp)
+
+    [CSS에 대한 깊은 이해: 폰트 매트릭스, line-height와 vertical-align | WIT블로그](https://wit.nts-corp.com/2017/09/25/4903)
