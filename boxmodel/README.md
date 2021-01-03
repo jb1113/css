@@ -183,7 +183,7 @@
 
     padding 영역은 border와 content 사이의 여백을 말합니다.
 
-    ### padding 관련 속성
+    ### padding 관련 속성 (default=0)
 
     padding의 기본값은 0이며, 속성 값으로 길이 단위인 length, 요소의 width에 상대적인 크기인 percent, initial, inherit으로 선언할 수 있습니다. (음수 값은 허용되지 않습니다.)
     요소 각 면에 padding을 지정하는 속성으로 padding-top, padding-right, padding-bottom, padding-left가 있습니다.
@@ -292,7 +292,7 @@
     margin 영역은 border 영역을 다른 요소와 구별하기 위해 쓰이는 빈 영역입니다.
     즉, 이 말은 다른 요소와의 간격을 만들 수 있다는 것을 뜻합니다.
 
-    ### margin 관련 속성
+    ### margin 관련 속성 (default=0)
 
     margin의 기본값은 0이며, 속성 값으로 길이의 단위인 length, initial, inherit을 선언할 수 있으며, padding과 다르게 auto 값을 선언할 수 있습니다. (padding과 달리 음수 값을 지정할 수 있습니다.)
 
@@ -508,7 +508,7 @@
     정확히는 content 영역의 너비를 지정하는 것을 의미합니다.
     크기를 지정한다는 것은 같지만, 요소의 종류나 특징에 따라서 다르게 동작하기도 합니다.
 
-    ### width 관련 속성
+    ### width 관련 속성 (default=auto)
 
     width의 기본값은 auto이며, length, percent, initial, inherit으로 선언할 수 있습니다.
 
@@ -636,7 +636,7 @@
     width와 마찬가지로 정확히는 content 영역의 높이를 지정하는 것을 의미합니다.
     기본적으로는 width의 동작 방식과 같게 동작하지만, % 값의 경우 동작 방식이 조금 다릅니다.
 
-    ### height 관련 속성
+    ### height 관련 속성 (default=auto)
 
     height의 기본값도 width와 동일하게 auto이며, length, percent, initial, inherit으로 선언할 수 있습니다.
 
