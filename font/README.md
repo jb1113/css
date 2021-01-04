@@ -148,7 +148,7 @@
     <html lang="ko">
     	<head>
     		<meta charset="UTF-8">
-    		<title>border</title>
+    		<title>line-height</title>
     		<style>
     			.parent {
     				width: 200px;
@@ -187,3 +187,80 @@
     [CSS line-height property](https://www.w3schools.com/cssref/pr_dim_line-height.asp)
 
     [CSS에 대한 깊은 이해: 폰트 매트릭스, line-height와 vertical-align | WIT블로그](https://wit.nts-corp.com/2017/09/25/4903)
+
+- font-size
+
+    글꼴의 크기를 지정하는 속성입니다.
+    텍스트를 많이 사용하는 HTML 문서에서 font-size 속성은 가독성이나 명확한 구문을 표현하기 위해서 반드시 필요한 속성입니다.
+    글꼴의 크기를 지정하는 font-size 속성에는 다양한 값들이 있습니다.
+
+    ### font-size 속성 (default=medium)
+
+    ```css
+    font-size: keyword|length|initial|inherit;
+    ```
+
+    - keyword : medium(기본값), xx-small, x-small, small, large, x-large, xx-large, smaller, larger가 있으며 브라우저마다 사이즈가 다릅니다.
+    - length : px, em 등 고정 수치로 지정할 수 있습니다.
+    - % : 부모 요소의 font-size 기준의 퍼센트로 지정합니다.
+
+    다르게 분류할 경우 아래와 같습니다.
+
+    - absolute size (keyword) : 기본 값인 medium에 대한 상대적인 크기로 브라우저마다 사이즈가 다르게 정의되어 있습니다.
+    - relative size (keyword) : 부모 요소의 font-size 크기에 대해 상대적입니다. smaller는 0.8배, larger는 1.2배 입니다.
+    - length (px, em, rem) : 단위를 이용하여 고정된 크기를 지정할 수 있습니다.
+    em : 부모 요소의 font-size에 em 값을 곱한 크기
+    rem : root의 font-size에 rem 값을 곱한 크기
+    - percent (%) : 부모 요소의 font-size를 기준으로 백분율 계산된 값을 지정할 수 있습니다.
+    - viewport units (vw, vh) : 뷰포트를 기준으로 하여, 유동적인 font-size를 지정할 수 있습니다.
+    vw : 뷰포트 width의 1%
+    vh : 뷰포트 heigh의 1%
+
+    브라우저에서 font-size의 기본값을 미지정한 경우 font-size의 기본 크기는 16px을 의미합니다. (= 1em)
+
+    ---
+
+    ### 심화
+
+    font-size에는 em 단위와 % 단위를 사용할 수 있습니다. 둘 다 부모 요소의 font-size를 기준으로 그 값이 곱해지기 때문에 font-size 속성에서는 두 단위의 동작이 같아 보일수 있습니다. 그러나 다른 속성에서 이 단위들이 사용될 때는 그 기준이 명확하게 달라지기 때문에 이 차이에 대해 유념해야 합니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>font-size</title>
+    		<style>
+    			.parent {
+    				font-size: 20px;
+    			}
+
+    			.child {
+    				font-size: 1em;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div class="parent">
+    			<div class="child">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    				harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+    				Adipisci, delectus.
+    			</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)
+
+    [CSS font-size property](https://www.w3schools.com/cssref/pr_font_font-size.asp)
