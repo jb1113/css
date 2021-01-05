@@ -1,4 +1,4 @@
-# 폰트, 텍스트
+# 폰트
 
 - typography
 
@@ -78,8 +78,6 @@
     [font-family](https://developer.mozilla.org/ko/docs/Web/CSS/font-family)
 
     [CSS font-family property](https://www.w3schools.com/cssref/pr_font_font-family.asp)
-
-    [CSS Fonts](https://www.w3schools.com/css/css_font.asp)
 
 - line-height
 
@@ -483,3 +481,49 @@
     [font-variant](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant)
 
     [CSS font-variant property](https://www.w3schools.com/cssref/pr_font_font-variant.asp)
+
+- font
+
+    font-style, font-variant, font-weight, font-size/line-height, font-family 속성들을 한 번에 선언할 수 있는 축약형 속성입니다.
+    font 속성의 경우 앞서 배운 font와 관련된 다양한 값을 축약 속성에 넣을 수 있습니다.
+    다만, 속성마다 선언 순서를 지켜야 하는 제약이 있습니다.
+    또한 반드시 넣어야 하는 속성들이 있는 등의 지켜야 하는 규칙이 많고 가독성이 떨어지기 때문에 실무에서 선호하는 방법은 아닙니다.
+    하지만 font로 선언된 속성을 보고 어떤 값들이 적용되어 있는지 해석할 수 있어야 합니다.
+
+    ### font 속성 (default=각 속성의 기본값)
+
+    ```css
+    font: font-style font-variant font-weight font-size/line-height font-family|initial|inherit;
+    ```
+
+    - font-style : 기본 값은 normal
+    - font-variant : 기본 값은 normal
+    - font-weight : 기본 값은 normal
+    - font-size/line-height : 기본 값은 medium/normal
+    - font-family : font-family 값 지정
+
+    축약형을 선언할 때에는 아래 사항들을 유의해야 합니다.
+
+    - font-size와 font-family는 반드시 선언해야 하는 필수 속성입니다.
+    - 각 속성의 선언 순서를 지켜야 합니다.
+    - 빠진 속성이 있다면 기본 값으로 지정됩니다.
+
+    ```css
+    /* style|size|family */
+    font: oblique 2em "돋움",dotum,sans-serif;
+
+    /* style|variant|weight|size/line-height|family */
+    font: oblique small-caps bold 16px/1.5 "돋움",dotum,sans-serif;
+
+    /* The font used in system dialogs */
+    font: message-box;
+    font: icon;
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
+
+    [CSS Fonts](https://www.w3schools.com/css/css_font.asp)
