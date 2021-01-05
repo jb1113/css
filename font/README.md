@@ -397,3 +397,46 @@
     [CSS font-weight property](https://www.w3schools.com/cssref/pr_font_weight.asp)
 
     [Font weight with numeric values](https://codepen.io/impressivewebs/pen/EIncg)
+
+- font-style
+
+    글꼴의 스타일을 지정하는 속성입니다.
+    em 태그를 사용했을때, 글꼴이 기울어지는 것을 확인 했었습니다.
+    em 태그는 기본적으로 font-style 속성에 italic이라는 값을 가지고 있어 기울임꼴로 표시됩니다.
+    이처럼 font-style 속성을 이용하면 글꼴의 기울임 처리를 할 수도 있습니다.
+    순서대로 normal, italic, oblique 스타일이 적용된 텍스트 입니다.
+
+    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_282%2F1537815184289axaTi_PNG%2F12345.png](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_282%2F1537815184289axaTi_PNG%2F12345.png)
+
+    ### font-style 속성 (default=normal)
+
+    ```css
+    font-style: normal|italic|oblique|initial|inherit;
+    ```
+
+    - normal : font-family 내에 분류된 기본 값
+    - italic : italic 스타일로 표현합니다.
+    - oblique : oblique 스타일로 표현합니다. (텍스트의 기울기에 대한 각도를 추가로 지정할 수 있습니다.)
+
+    ---
+
+    ### 심화
+
+    대부분 브라우저에서 italic 스타일과 oblique 스타일을 똑같은 형태로 표현하고 있습니다.
+    oblique 뒤에 오는 angle의 유효한 값은 -90 ~ 90도이며, 따로 각도를 지정하지 않으면 기본 14도가 사용됩니다.
+    양수 값은 글의 끝 부분 쪽으로 기울어지며, 음수 값은 시작 부분 쪽으로 기울어집니다.
+
+    ```css
+    /* font-style: oblique <angle> */
+    font-style: oblique 45deg;
+    ```
+
+    그러나, 아직 초안 단계로 [CSS Fonts Module Level](https://drafts.csswg.org/css-fonts-4/#font-style-prop) 4를 지원하는 브라우저에서만 사용 가능합니다.
+
+    ---
+
+    ### 참고자료
+
+    [font-style](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style)
+
+    [CSS font-style property](https://www.w3schools.com/cssref/pr_font_font-style.asp)
