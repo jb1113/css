@@ -440,3 +440,46 @@
     [font-style](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style)
 
     [CSS font-style property](https://www.w3schools.com/cssref/pr_font_font-style.asp)
+
+- font-variant
+
+    글꼴의 형태를 변형하는 속성으로 소문자를 작은 대문자로 변환합니다.
+
+    ### font-variant 속성 (default=normal)
+
+    ```css
+    font-variant: normal|small-caps|initial|inherit;
+    ```
+
+    - normal : 기본값
+    - small-caps : 소문자를 작은 대문자로 변환합니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>font-variant</title>
+    		<style>
+    			p {
+    				font-variant: small-caps;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<p>Font-Variant: Small-Caps</p>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [font-variant](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant)
+
+    [CSS font-variant property](https://www.w3schools.com/cssref/pr_font_font-variant.asp)
