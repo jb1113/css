@@ -248,7 +248,7 @@
     vw : 뷰포트 width의 1%
     vh : 뷰포트 heigh의 1%
 
-    브라우저에서 font-size의 기본값을 미지정한 경우 font-size의 기본 크기는 16px을 의미합니다. (= 1em)
+    브라우저에서 **font-size의 기본값을 미지정한 경우 font-size의 기본 크기는 16px**을 의미합니다. (= 1em)
 
     ---
 
@@ -296,3 +296,104 @@
     [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)
 
     [CSS font-size property](https://www.w3schools.com/cssref/pr_font_font-size.asp)
+
+- font-weight
+
+    글꼴의 굵기를 지정하는 속성입니다.
+    시멘틱 태그 중 heading(h1~h1), strong 태그들을 사용했을때 글씨가 굵게 표현되는 것을 확인 했었는데요.
+    분명히 아무런 스타일도 입히지 않았는데 왜 이렇게 표현 되었던 걸까요?
+    우리는 흔히 글을 쓸 때 중요한 부분이나 강조하고 싶을 때 폰트를 굵게 표시하곤 합니다.
+    브라우저도 위의 태그들이 시멘틱하게, 중요하다고 판단되어 굵게 표시하기 위해 font-weight 속성을 이용하여 굵게 표현했다고 생각하면 됩니다.
+    이때 font-weight라는 속성에 의해서 위와 같이 표현되었던 것입니다.
+    앞서 사용했던 태그들이 font-weight에 의해 굵게 표현되는 속성을 기본값으로 가지고 있기 때문입니다.
+
+    ### font-weight 속성 (default=normal)
+
+    ```css
+    font-weight: normal|bold|bolder|lighter|number|initial|inherit;
+    ```
+
+    - normal : 기본값 (400)
+    - bold : 굵게 표현 (700)
+    - bolder : 부모 요소보다 두껍게 표현
+    - lighter : 부모 요소보다 얇게 표현
+    - number : 굵기의 수치, 100~900까지 있으며 100단위로 값을 지정 (클수록 더 두껍게 표현)
+
+    수치를 이용한 font-weight는 폰트 자체에서 지원을 해야 표현할 수 있습니다.
+    폰트에 따라서 font-weight를 적용해도 굵기에 변화가 없을 수도 있으며, **normal과 bold만 지원하는 폰트일 경우**에는 **100~500까지는 normal, 600~900까지는 bold**로 표현됩니다.
+
+    폰트가 점차 다양해지면서 굵기 자체를 폰트 family-name으로 가지고 있는 경우도 있습니다.
+    또한, 디바이스 별로 조금 다르게 표현될 수도 있습니다.
+
+    실무에서는 normal과 bold를 많이 사용하고, 부모 요소에 영향이 있는 bolder와 lighter의 사용은 되도록 지양하는 편입니다.
+    물론, 상속 관계에 의해서 바뀌어야 하는 경우라면 당연히 유용하게 사용할 수 있지만 그 외의 경우에는 사용에 있어 신중해야 합니다.
+
+    font-weight와 font-family, font-size는 서로 밀접하게 연관되어 있습니다.
+
+    ```css
+    font-weight: normal; /* 400과 같음 */
+    font-weight: bold; /* 700과 같음 */
+    font-wieght: lighter; /* 부모 요소보다 얇은 폰트 가중치 */
+    font-weight: bolder; /* 부모 요소보다 굵은 폰트 가중치 */
+
+    font-weight: 100; /* Thin (Hairline) */
+    font-weight: 200; /* Extra Light (Ultra Light) */
+    font-weight: 300; /* Light */
+    font-weight: 400; /* Normal */
+    font-weight: 500; /* Medium */
+    font-weight: 600; /* Semi Bold (Demi Bold) */
+    font-weight: 700; /* Bold */
+    font-weight: 800; /* Extra Bold (Ultra Bold) */
+    font-weight: 900; /* Black (Heavy) */
+    ```
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>font-weight</title>
+    		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+    		<style>
+    			body {
+    				padding: 0 20px;
+    				font-family: 'Open Sans';
+    			}
+    			.w100 { font-weight: 100; }
+    			.w200 { font-weight: 200; }
+    			.w300 { font-weight: 300; }
+    			.w400 { font-weight: 400; }
+    			.w500 { font-weight: 500; }
+    			.w600 { font-weight: 600; }
+    			.w700 { font-weight: 700; }
+    			.w800 { font-weight: 800; }
+    			.w900 { font-weight: 900; }
+    		</style>
+    	</head>
+    	<body>
+    		<p class="w100">This is 100 font-weight</p>
+    		<p class="w200">This is 200 font-weight</p>
+    		<p class="w300">This is 300 font-weight</p>
+    		<p class="w400">This is 400 font-weight</p>
+    		<p class="w500">This is 500 font-weight</p>
+    		<p class="w600">This is 600 font-weight</p>
+    		<p class="w700">This is 700 font-weight</p>
+    		<p class="w800">This is 800 font-weight</p>
+    		<p class="w900">This is 900 font-weight</p>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [font-weight](https://developer.mozilla.org/ko/docs/Web/CSS/font-weight)
+
+    [CSS font-weight property](https://www.w3schools.com/cssref/pr_font_weight.asp)
+
+    [Font weight with numeric values](https://codepen.io/impressivewebs/pen/EIncg)
