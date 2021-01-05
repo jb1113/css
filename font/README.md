@@ -46,6 +46,7 @@
     예를 들면 아래와 같이 선언하여 사용할 수 있습니다.
 
     ```css
+    /* 맨 마지막 선언은 generic-family */
     font-family: Helvetica, Dotum, '돋움', Apple SD Gothic Neo, sans-serif;
     ```
 
@@ -205,6 +206,37 @@
     - % : 부모 요소의 font-size 기준의 퍼센트로 지정합니다.
 
     다르게 분류할 경우 아래와 같습니다.
+
+    ```css
+    /* <absolute-size> values - 브라우저마다 사이즈가 다르게 정의되어 있으며, 부모 상속 없음 */
+    font-size: xx-small;
+    font-size: x-small;
+    font-size: small;
+    font-size: medium; /* 기본 사이즈 */
+    font-size: large;
+    font-size: x-large;
+    font-size: xx-large;
+
+    /* <relative-size> values */
+    font-size: smaller; /* 부모 사이즈의 약 0.8배 */
+    font-size: larger; /* 부모 사이즈의 약 1.2배 */
+
+    /* <length> values */
+    font-size: 16px;
+    font-size: 0.8em;
+    font-size: 1.2rem;
+
+    /* <percentage> values */
+    font-size: 80%;
+
+    /* <viewport-units> values */
+    font-size: 1vw; /* 1% of viewport width */
+    font-size: 1vh; /* 1% of viewport height */
+
+    /* global values */
+    font-size: initial; /* 태그가 갖고 있는 고유 폰트 크기 속성 */
+    font-size: inherit; /* 부모 상속을 받을 수 있는 폰트 크기 속성 */
+    ```
 
     - absolute size (keyword) : 기본 값인 medium에 대한 상대적인 크기로 브라우저마다 사이즈가 다르게 정의되어 있습니다.
     - relative size (keyword) : 부모 요소의 font-size 크기에 대해 상대적입니다. smaller는 0.8배, larger는 1.2배 입니다.
