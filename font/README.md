@@ -527,3 +527,81 @@
     [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
 
     [CSS Fonts](https://www.w3schools.com/css/css_font.asp)
+
+- font-face
+
+    실무에서 폰트와 관련하여 주로 사용되는 명칭으로 '시스템 폰트', '이미지 폰트', '웹 폰트'가 있습니다.
+    시스템 폰트는 font-family로 선언한 글꼴이 사용자 시스템에 기본으로 설치가 되어 있어 사용할 수 있는 경우입니다.
+    이미지 폰트는 특정 글꼴을 사용하는 것이 아니고, 글자를 표현함에 있어 시각적인 요소를 넣고 싶을때 글꼴 대신 글꼴 모양의 이미지를 이용해서 표현하는 경우를 의미합니다.
+    정확히 얘기하자면 이미지 폰트는 폰트가 아닌 이미지 입니다.
+    웹 폰트는 서버에 저장한 폰트를 제공하거나, 웹 경로를 통해 import하여 사용하거나, 사용자의 로컬 환경에 다운로드 받아 적용하는 폰트를 말합니다.
+
+    ### font-face 속성 (default=없음)
+
+    웹에 있는 글꼴을 사용자의 로컬 환경으로 다운로드하여 적용하는 속성입니다.
+
+    ```css
+    @font-face: { font-properties }
+    ```
+
+    - font-family (필수) : 글꼴의 이름을 지정
+    - src (필수) : 다운로드 받을 글꼴의 경로 (URL)
+    - font-weight (옵션) : 글꼴의 굵기 지정, 기본 값은 normal
+    - font-style (옵션) : 글꼴의 스타일 지정, 기본 값은 normal
+
+    ```css
+    @font-face {
+    	font-family: webNanumGothic; /* 필수 값으로 사용자 지정 웹 폰트명 */
+    	src: url(NanumGothic.eot); /* 필수 값으로 적용될 웹 폰트의 경로 */
+    	font-weight: bold; /* 필요에 따라 지정하며, 기본 값은 normal */
+    	font-style: italic; /* 필요에 따라 지정하며, 기본 값은 normal */
+    }
+
+    body {
+    	font-family: webNanumGothic; /* 위에서 정의한 사용자 지정 웹 폰트명 사용 */
+    }
+    ```
+
+    웹 폰트는 선언시 필요에 따라 굵기나 스타일 등을 같이 지정해서 사용할 수 있습니다.
+
+    ---
+
+    ### 심화
+
+    웹폰트의 확장자별로 지원범위가 다릅니다. 위의 예시에서는 eot 확장자 파일 한개만을 사용하였지만, 여러 종류의 웹폰트를 동시에 선언하여 사용할 수 있습니다.
+    또한, 선언된 순서에 따라 어떻게 동작하는지 확인해봅니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <html>
+    <head>
+      <title>web font</title>
+      <style type="text/css" media="screen, print">
+        @font-face {
+          font-family: "Bitstream Vera Serif Bold";
+          src: url("http://developer.mozilla.org/@api/deki/files/2934/=VeraSeBd.ttf");
+        }
+
+        body { font-family: "Bitstream Vera Serif Bold", serif }
+      </style>
+    </head>
+    <body>
+      This is Bitstream Vera Serif Bold.
+    </body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face)
+
+    [CSS @font-face Rule](https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp)
+
+    [CSS Web Fonts](https://www.w3schools.com/css/css3_fonts.asp)
+
+    [web.dev](https://web.dev/fast/#optimize-webfonts)
