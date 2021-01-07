@@ -388,3 +388,102 @@
     [CSS text-decoration-style property](https://www.w3schools.com/cssref/css3_pr_text-decoration-style.asp)
 
     [- CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword)
+
+- 단어 관련 속성
+
+    CSS에는 텍스트에 대한 속성뿐만 아니라 단어에 대해서 어떻게 표현할지 지정할 수 있는 속성들이 있습니다.
+    몇가지 예를 들자면 단어의 공백을 어떻게 처리할지, 단어 사이의 간격을 얼마만큼 가질지, 줄 바꿈이 되는 지점은 어디로 둘지 등을 지정할 수 있습니다.
+
+    ### white-space 속성 (default=normal)
+
+    요소 안의 공백을 어떻게 처리할지 지정하는 속성입니다.
+
+    ```css
+    white-space: normal|nowrap|pre|pre-line|pre-wrap|initial|inherit;
+    ```
+
+    - normal : 공백과 개행을 무시하고, 필요한 경우에 자동 줄바꿈 발생 (기본값)
+    - nowrap : 공백과 개행을 무시하고, 자동 줄바꿈이 일어나지 않음
+    - pre : 공백과 개행을 표현하고, 자동 줄바꿈이 일어나지 않음
+    - pre-line : 공백은 무시하고, 개행만 표현. 필요한 경우에 자동 줄바꿈 발생
+    - pre-wrap : 개행은 무시하고, 공백만 표현. 필요한 경우 자동 줄바꿈 발생
+
+    ### letter-spacing 속성 (default=normal)
+
+    글자간의 간격(자간)을 지정하는 속성입니다.
+
+    ```css
+    letter-spacing: normal|length|initial|inherit;
+    ```
+
+    - normal : 현재 글꼴의 기본 간격 (기본값)
+    - length : 지정한 수치만큼 자간을 지정합니다. 음수 가능
+
+    ### word-spacing 속성 (default=normal)
+
+    단어 사이의 간격을 지정하는 속성입니다.
+
+    ```css
+    word-spacing: normal|length|initial|inherit;
+    ```
+
+    - normal : 현재 글꼴의 단어 간격 (기본값)
+    - length : 지정한 수치만큼 단어 사이의 간격을 지정합니다. 음수 가능
+
+    ### word-break 속성 (default=normal)
+
+    단어가 라인 끝에 나올 경우 어떻게 처리할지(중단점)를 지정하는 속성입니다.
+
+    ```css
+    word-break: normal|break-all|keep-all|initial|inherit;
+    ```
+
+    - normal : 기본 줄바꿈 규칙 (기본값)
+    중단점은 공백이나 하이픈(-)이며 한중일(CJK)는 음절이 중단점
+    - break-all : 기본 중단점은 음절이며 모든 글자가 요소를 벗어나지 않고 개행
+    - keep-all : 기본 중단점은 공백이나 하이픈(-)이며 한중일(CJK)에서는 줄을 바꿀때 단어를 끊지 않음
+
+    ### word-wrap 속성 (default=normal)
+
+    요소를 벗어난 단어의 줄바꿈을 지정하는 속성입니다.
+
+    ```css
+    word-wrap: normal|break-word|initial|inherit;
+    ```
+
+    - normal : 기본 줄바꿈 규칙대로 중단점에서 개행 (기본값)
+    - break-word : 모든 글자가 요소를 벗어나지 않고 강제로 개행
+
+    ---
+
+    ### 심화
+
+    word-break 속성과 word-wrap 속성은 언어의 종류에 따라 다르게 동작합니다.
+    언어의 종류는 한중일(CJK)의 아시아권 언어와 그 외의 언어를 말합니다.
+    종류에 따라 어떤 차이를 가지고 동작하는지 구분할 줄 알아야 합니다.
+
+    ---
+
+    ### 참고자료
+
+    [white-space](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)
+
+    [CSS white-space property](https://www.w3schools.com/cssref/pr_text_white-space.asp)
+
+    [letter-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
+
+    [CSS letter-spacing property](https://www.w3schools.com/cssref/pr_text_letter-spacing.asp)
+
+    [word-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing)
+
+    [CSS word-spacing property](https://www.w3schools.com/cssref/pr_text_word-spacing.asp)
+
+    [word-break](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)
+
+    [CSS word-break property](https://www.w3schools.com/cssref/css3_pr_word-break.asp)
+
+    [overflow-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap)
+
+    [https://www.w3schools.com/cssref/css3_pr_word-wrap.asp](https://www.w3schools.com/cssref/css3_pr_word-wrap.asp)
+
+    [CSS Text](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Text)
