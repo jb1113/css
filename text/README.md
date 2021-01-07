@@ -168,3 +168,86 @@
     [vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)
 
     [CSS vertical-align property](https://www.w3schools.com/cssref/pr_pos_vertical-align.asp)
+
+- text-align
+
+    vertical-align이 인라인 요소의 수직 정렬이었다면, text-align은 인라인 요소의 수평 정렬에 사용됩니다.
+    이 속성 또한 블록 레벨 요소에는 적용되지 않습니다.
+
+    ### text-align 속성 (default=left, RTL 언어일 경우 right)
+
+    텍스트의 정렬을 지정하는 속성입니다.
+
+    ```css
+    text-align: left|right|center|justify|initial|inherit;
+    ```
+
+    기본값은 left이지만 경우에 따라 다릅니다.
+    문서의 방향이 LTR(Left To Right) 왼쪽에서 오른쪽 방향인 언어일 경우 left가 기본값이고, RTL(Right To Left)로 오른쪽에서 왼쪽 방향인 언어일 경우 right가 기본값이 됩니다.
+
+    - left : 텍스트를 왼쪽으로 정렬
+    - right : 텍스트를 오른쪽으로 정렬
+    - center : 텍스트를 중앙으로 정렬
+    - justify : 텍스트를 라인 양쪽 끝으로 붙여서 정렬 (마지막 라인은 정렬하지 않음)
+
+    ### text-align과 display의 관계
+
+    text-align은 inline-level 요소에만 적용되며, block-level에 적용할 수 없습니다.
+    만약, 해당 속성을 **블록 요소에 선언할 경우 블록 요소 안에 있는 인라인 요소들의 정렬을 정의**합니다.
+
+    ```css
+    div {
+    	text-align: center;
+    	width: 100px;
+    	height: 100px;
+    	background: red;
+    }
+
+    ...
+    <div>text-align</div>
+    ```
+
+    위의 경우 `**<div>` 요소가 전체 화면에서 가운데 정렬이 되는것이 아니라, `<div>` 요소 안에 있는 인라인 레벨인 텍스트에 적용이 되어 텍스트가 가운데 정렬되는 것을 확인**할 수 있습니다.
+    만약 `<div>` 요소 자체를 화면 가운데로 정렬하고 싶다면 margin 속성을 이용하여 auto 값을 주어 가운데로 정렬할 수 있습니다.
+
+    때문에 **인라인 레벨 요소들을 정렬**하기 위해서는 **text-align(center) 속성**을 사용하고, **블록 레벨 요소들을 정렬**하기 위해서는 **margin(auto) 속성**을 사용합니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>text-align</title>
+    		<style>
+    			p {
+    				border: 1px solid #ccc;
+    				padding: 10px;
+    				max-width: 630px;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<h1>text-align</h1>
+    		<h2>left</h2>
+    		<p style="text-align: left;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    		<h2>right</h2>
+    		<p style="text-align: right;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    		<h2>center</h2>
+    		<p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    		<h2>justify</h2>
+    		<p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
+
+    [CSS text-align property](https://www.w3schools.com/cssref/pr_text_text-align.asp)
