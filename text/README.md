@@ -251,3 +251,53 @@
     [text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
 
     [CSS text-align property](https://www.w3schools.com/cssref/pr_text_text-align.asp)
+
+- text-indent
+
+    텍스트의 들여쓰기를 지정하는 속성입니다.
+
+    ### text-indent 속성 (default=0)
+
+    ```css
+    text-indent: length|percent|initial|inherit;
+    ```
+
+    - length : px, em 등 고정 수치로 지정할 수 있습니다. 음수 가능
+    - % : 부모 요소의 width를 기준으로 퍼센트로 지정할 수 있습니다.
+
+    length 값의 경우 문단의 첫 줄에 대한 들여쓰기를 수행합니다.
+    음수 값을 사용할 수 있으며, 음수 값 사용시 왼쪽으로 이동합니다.
+    percent 값의 경우 텍스트를 포함하는 컨테이너 블록의 width(부모의 width)를 기준으로 변환된 백분율 값으로 들여쓰기 합니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>text-indent</title>
+    	</head>
+    	<body>
+    		<h1>text-indent</h1>
+    		<h2>length 1em</h2>
+    		<p style="text-indent: 1em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    		<h2>length 40px</h2>
+    		<p style="text-indent: 40px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    		<h2>percentage 15%</h2>
+    		<p style="text-indent: 15%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    		<h2>length -40px</h2>
+    		<p style="text-indent: -40px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.</p>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [text-indent](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent)
+
+    [CSS text-indent property](https://www.w3schools.com/cssref/pr_text_text-indent.asp)
