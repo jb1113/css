@@ -9,7 +9,8 @@
 
     ### 타이포그래피의 구조
 
-    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_2%2F1538299310812y3Shi_PNG%2F11123.png](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180930_2%2F1538299310812y3Shi_PNG%2F11123.png)
+    ![typography](./typography.png)
+    > 출처 [https://www.boostcourse.org/cs120/lecture/92921](https://www.boostcourse.org/cs120/lecture/92921)
 
     폰트를 이해하기 위해서는 타이포그래피의구조를 먼저 이해해야 합니다.
     모든 폰트는 em 박스를 가지고 있고 위 그림과 같은 구조로 이루어져 있습니다.
@@ -86,7 +87,8 @@
     line-height 속성을 이용해 이 행간을 조정할 수 있습니다.
     정확하게는 line-height는 줄의 높이를 의미하는 것이고, 이를 이용해서 행간을 조정할 수 있는 것입니다.
 
-    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_292%2F1537812871995OXjoa_PNG%2F1234.png](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_292%2F1537812871995OXjoa_PNG%2F1234.png)
+    ![line-height](./line-height.png)
+    > 출처 [https://www.boostcourse.org/cs120/lecture/92923](https://www.boostcourse.org/cs120/lecture/92923)
 
     행간을 제어할 때 사용하는 속성이라해서 줄 간격으로 생각해 오해할 수 있습니다.
     줄 바꿈이 되었을 때 윗 줄의 텍스트 하단과 아랫줄의 텍스트 상단까지의 간격이라고 생각할 수도 있지만, line-height 속성으로 제어되는 부분을 line-box라고도 하며 이는 타이포그래피 구조에서 배웠던 [em 박스] + [상, 하단의 여백]까지를 의미합니다.
@@ -404,7 +406,8 @@
     이처럼 font-style 속성을 이용하면 글꼴의 기울임 처리를 할 수도 있습니다.
     순서대로 normal, italic, oblique 스타일이 적용된 텍스트 입니다.
 
-    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_282%2F1537815184289axaTi_PNG%2F12345.png](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_282%2F1537815184289axaTi_PNG%2F12345.png)
+    ![font-style](./font-style.png)
+    > 출처 [https://www.boostcourse.org/cs120/lecture/92926](https://www.boostcourse.org/cs120/lecture/92926)
 
     ### font-style 속성 (default=normal)
 
