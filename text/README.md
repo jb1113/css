@@ -301,3 +301,90 @@
     [text-indent](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent)
 
     [CSS text-indent property](https://www.w3schools.com/cssref/pr_text_text-indent.asp)
+
+- text-decoration
+
+    `<a>` 태그를 사용하면 기본적으로 텍스트 밑에 밑줄이 그어져서 표시되는 것을 확인할 수 있습니다.
+    이러한 이유는 브라우저에 따라 다를 수는 있지만 보통 text-decoration이 `<a>` 태그에 대해서 기본값이 다르게 되어 있기 때문입니다.
+    text-decoration 속성은 단순 밑줄을 그어주는 것 뿐만 아니라 다양한 줄의 스타일과 모양, 색상 등을 제어할 수 있습니다.
+
+    ### text-decoration 속성 (default=none currentColor solid)
+
+    텍스트의 장식을 지정하는 속성입니다.
+    아래 속성들의 단축 속성으로 기본 값은 차례대로 none currentColor solid 값입니다.
+
+    ```css
+    text-decoration: text-decoration-line text-decoration-color text-decoration-style|initial|inherit;
+    ```
+
+    text-decoration-line : 텍스트 꾸밈의 종류를 지정하는 속성입니다.
+
+    - none : 텍스트 꾸밈을 생성하지 않음 (기본값)
+    - underline : 밑줄로 꾸밈을 설정
+    - overline : 윗줄로 꾸밈을 설정
+    - line-through : 중간을 지나는 줄로 꾸밈을 설정
+
+    text-decoration-color : 텍스트 꾸밈의 색상을 지정하는 속성입니다.
+
+    - currentColor : 기본값
+
+    색상 값을 사용하여 원하는 색상을 지정할 수 있습니다.
+    색상 값 적용 방식과 동일합니다.
+
+    text-decoration-style : 텍스트 꾸밈에 사용되는 선의 스타일을 지정하는 속성입니다.
+
+    - solid :  한줄 (기본값)
+    - double : 이중선
+    - dotted : 점선
+    - dashed : 파선
+    - wavy : 물결
+
+    ---
+
+    ### 심화
+
+    text-decoration-color에서 기본값은 currentColor 입니다.
+    currentColor은 CSS 내에서 색상 값으로 사용할 수 있는 키워드입니다.
+    currentColor이 의미하는 바가 무엇이고 어떻게 사용하는지 알아야 합니다.
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>text-decoration</title>
+    	</head>
+    	<body>
+    		<h2>일반적인 경우</h2>
+    		<p style="text-decoration: overline;">text-decoration: overline;</p>
+    		<p style="text-decoration: underline;">text-decoration: underline;</p>
+    		<p style="text-decoration: line-through;">text-decoration: line-through;</p>
+
+    		<h2>부모 내 자식요소가 float의 경우 상속이 해제됩니다</h2>
+    		<a href="#" style="text-decoration: overline;"><span style="float: left;">text-decoration: overline;</span></a>
+    		<br>
+    		<h2>부모 내 자식요소가 absolute의 경우 상속이 해제됩니다</h2>
+    		<a href="#" style="text-decoration: overline;"><span style="position: absolute;">text-decoration: overline;</span></a>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [text-decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)
+
+    [CSS text-decoration property](https://www.w3schools.com/cssref/pr_text_text-decoration.asp)
+
+    [CSS text-decoration-line property](https://www.w3schools.com/cssref/css3_pr_text-decoration-line.asp)
+
+    [CSS text-decoration-color property](https://www.w3schools.com/cssref/css3_pr_text-decoration-color.asp)
+
+    [CSS text-decoration-style property](https://www.w3schools.com/cssref/css3_pr_text-decoration-style.asp)
+
+    [- CSS: Cascading Style Sheets | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#currentcolor_keyword)
