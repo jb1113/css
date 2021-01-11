@@ -402,7 +402,7 @@
     			<div style="float: left;">Box2</div>
     		</div>
 
-    		<h3>box2 영역을 확인하기 위해 border 속성 적용, box1 float:left</h3>
+    		<h3 style="clear: both;">box2 영역을 확인하기 위해 border 속성 적용, box1 float:left</h3>
     		<div class="container">
     			<div style="float: left;">Box1</div>
     			<div style="border: 2px solid red;">Box2</div>
@@ -537,3 +537,10 @@
     [CSS Layout - float and clear](https://www.w3schools.com/css/css_float.asp)
 
     [CSS Layout - Float Examples](https://www.w3schools.com/css/css_float_examples.asp)
+
+- clear
+
+    float 속성에서 배웠듯이 floating 요소는 주변 요소들의 배치에도 영향을 줍니다.
+    그러므로 가끔 주변 요소들이 의도하지 않은대로 나타날 수 있는데, clear 속성을 사용하여 이 문제를 해결할 수 있습니다.
+    의도한게 아니라면 대부분 floating 요소 다음 요소에 바로 clear를 해주는게 좋습니다.
+    clear 속성은 float 속성과 항상 따라다니는 속성이므로 잘 알아두어야 합니다.
