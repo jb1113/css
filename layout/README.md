@@ -290,3 +290,41 @@
     [CSS display property](https://www.w3schools.com/cssref/pr_class_display.asp)
 
     [CSS Layout - The display Property](https://www.w3schools.com/css/css_display_visibility.asp)
+
+- visibility
+
+    CSS에서 요소를 숨기는 방법에는 몇 가지가 있습니다.
+    display 속성에서 배웠듯이 아예 렌더링 되지 않게끔 할 수도 있고, 
+    다른 위치 관련 속성들을 이용해서 안보이게 숨기는 방법도 있습니다.
+    하지만 요소를 숨긴다는 의미로만 해석하면 가장 명시적인 방법은 visibility 속성을 이용하는 것입니다.
+
+    ### visibility 속성 (default=visible)
+
+    요소의 화면 표시 여부를 지정하는 속성입니다.
+
+    ```css
+    visibility: visible|hidden|collapse|initial|inherit;
+    ```
+
+    - visible : 화면에 표시 (기본값)
+    - hidden : 화면에 표시되지 않음 (요소가 갖고 있는 영역은 존재함)
+    - collapse : 셀 간의 경계를 무시하고 숨김 (테이블 관련 요소에만 적용 가능)
+
+    ```css
+    visibility: visible; /* 보임 (기본값) */
+    visibility: hidden; /* 숨김 (자신의 박스 영역은 유지. margin까지 모두 포함 */
+    visibility: collapse; /* 셀 간의 경계를 무시하고 숨김 (박스 영역 없음. 테이블의 행과 열 요소에만 지정 가능하고 그 외 요소 지정은 hidden과 동일 */
+    ```
+
+    ### display: none과의 차이점
+
+    - display: none → 요소가 렌더링 되지 않음 (DOM에 존재하지 않음)
+    - visibility: hidden → 요소가 보이지는 않지만 렌더링 되며 화면에 공간을 가짐 (DOM에 존재함)
+
+    ---
+
+    ### 참고자료
+
+    [visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
+
+    [CSS visibility property](https://www.w3schools.com/cssref/pr_class_visibility.asp)
