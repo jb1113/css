@@ -328,3 +328,212 @@
     [visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
 
     [CSS visibility property](https://www.w3schools.com/cssref/pr_class_visibility.asp)
+
+- float
+
+    모든 요소는 기본적으로 보통의 흐름에 따라 위에서 아래로, 그리고 좌측에서 우측으로 배치됩니다.
+    요소 박스의 경계대로 차례대로 배치되며, float 속성은 요소를 보통의 흐름에서 벗어나 독자적인 공간 위에 배치되게 됩니다.
+    float 속성을 이용하면 주변 요소들과 더욱 자연스럽게 배치될 수 있지만, floating 되지 않은 주변 요소들에도 영향을 주기 때문에 잘 이해하고 사용해야 합니다.
+
+    ### float 속성 (default=none)
+
+    ```css
+    float: none|left|right|initial|inherit;
+    ```
+
+    - none : float 시키지 않음 (기본값)
+    - left : 좌측으로 float 시킴
+    - right : 우측으로 float 시킴
+
+    float 속성은 대표적으로 세 가지 특징을 갖습니다.
+
+    - 요소를 보통의 흐름에서 벗어나 띄워지게 함
+    - 주변 텍스트나 인라인 요소가 주위를 감싸는 특징
+    - 대부분 요소의 display 값을 block으로 변경함
+    예외적으로 inline-table, flext 등은 display 값이 block으로 변경되지 않고,
+    기존의 display 값을 유지
+
+    ### 요소를 보통의 흐름에서 벗어나 띄워지게 함
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>float</title>
+    		<style>
+    			.container {
+    				width: 400px;
+    				padding: 15px;
+    				border: 1px dashed #aaa;
+    			}
+
+    			.container div {
+    				width: 100px;
+    				height: 100px;
+    			}
+
+    			.container div:nth-child(1) {
+    				background-color: steelblue;
+    			}
+
+    			.container div:nth-child(2) {
+    				background-color: lightseagreen;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<h2>요소를 보통의 흐름에서 벗어나 띄워지게 함</h2>
+    		<h3>box1, box2 float:none</h3>
+    		<div class="container">
+    			<div style="">Box1</div>
+    			<div style="">Box2</div>
+    		</div>
+
+    		<h3>box1만 float:left 속성 적용</h3>
+    		<div class="container">
+    			<div style="float: left;">Box1</div>
+    			<div style="">Box2</div>
+    		</div>
+
+    		<h3>box1, box2 모두 float:left 속성 적용</h3>
+    		<div class="container">
+    			<div style="float: left;">Box1</div>
+    			<div style="float: left;">Box2</div>
+    		</div>
+
+    		<h3>box2 영역을 확인하기 위해 border 속성 적용, box1 float:left</h3>
+    		<div class="container">
+    			<div style="float: left;">Box1</div>
+    			<div style="border: 2px solid red;">Box2</div>
+    		</div>
+
+    		<h3>box2 height 크기 조정, box1 float:left</h3>
+    		<div class="container">
+    			<div style="float: left;">Box1</div>
+    			<div style="height: 150px; border: 2px solid red;">Box2</div>
+    		</div>
+
+    		<h3>box2 height, width 크기 조정, box1 float:left</h3>
+    		<div class="container">
+    			<div style="float: left;">Box1</div>
+    			<div style="height: 150px; width: 150px; border: 2px solid red;">Box2</div>
+    		</div>
+
+    		<h3>box2 height, width auto, box1 float:left</h3>
+    		<div class="container">
+    			<div style="float: left;">Box1</div>
+    			<div style="height: auto; width: auto; border: 2px solid red;">Box2</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ### 주변 텍스트나 인라인 요소가 주위를 감싸는 특징
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>float</title>
+    		<style>
+    			.container {
+    				width: 400px;
+    				padding: 15px;
+    				border: 1px dashed #aaa;
+    			}
+
+    			.container div {
+    				width: 100px;
+    				height: 100px;
+    			}
+
+    			.container div:nth-child(1) {
+    				background-color: steelblue;
+    			}
+
+    			.container div:nth-child(2) {
+    				background-color: lightseagreen;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<h2>주변 텍스트나 인라인 요소가 주위를 감싸는 특징</h2>
+    		<h3>box1, box2 opacity:0.5, box1 float:left, box2 float:right, p border background</h3>
+    		<div class="container">
+    			<div style="float: left; opacity: 0.5;">Box1</div>
+    			<div style="float: right; opacity: 0.5;">Box2</div>
+    			<p style="border: 2px solid red; background: pink;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    				harum eaque natus perferendis ducimus saepe libero, voluptatibus voluptates possimus.
+    				Adipisci, delectus.
+    			</p>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ### 대부분 요소의 display값을 block으로 변경
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>float</title>
+    		<style>
+    			.container {
+    				width: 400px;
+    				padding: 15px;
+    				border: 1px dashed #aaa;
+    			}
+
+    			.container div {
+    				width: 100px;
+    				height: 100px;
+    			}
+
+    			.container .box {
+    				width: 100px;
+    				height: 100px;
+    			}
+
+    			.container div:nth-child(1) {
+    				background-color: steelblue;
+    			}
+
+    			.container div:nth-child(2) {
+    				background-color: lightseagreen;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<h2>대부분 요소의 display값을 block으로 변경</h2>
+    		<h3>span의 width, height속성이 지정되어도 display가 inline이기 때문에 auto x auto 크기를 가짐</h3>
+    		<div class="container">
+    			<div style="" class="box">div Box1</div>
+    			<span style="background: skyblue;" class="box">span Box2</span>
+    		</div>
+
+    		<h3>span의 float 속성을 선언하면 display가 block으로 변경</h3>
+    		<div class="container">
+    			<div style="" class="box">div Box1</div>
+    			<span style="float: left; background: skyblue;" class="box">span Box2</span>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [float](https://developer.mozilla.org/en-US/docs/Web/CSS/float)
+
+    [CSS float property](https://www.w3schools.com/cssref/pr_class_float.asp)
+
+    [CSS Layout - float and clear](https://www.w3schools.com/css/css_float.asp)
+
+    [CSS Layout - Float Examples](https://www.w3schools.com/css/css_float_examples.asp)
