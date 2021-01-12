@@ -6,7 +6,7 @@
     그리고 그 값에 따라 블록 레벨, 인라인 레벨 등 렌더링 박스의 유형이 결정됩니다.
     display 속성을 통해 해당 요소의 렌더링 박스의 유형을 변경할 수 있으며, 심지어 렌더링 여부도 결정할 수 있습니다.
 
-    ### display 속성(default=? [요소마다 다름])
+    ### display 속성 (default=? [요소마다 다름])
 
     요소의 렌더링 박스 유형을 결정하는 속성입니다.
 
@@ -546,3 +546,134 @@
     [CSS Layout - float and clear](https://www.w3schools.com/css/css_float.asp)
 
     [CSS Layout - Float Examples](https://www.w3schools.com/css/css_float_examples.asp)
+
+- clear
+
+    float 속성에서 배웠듯이 floating 요소는 주변 요소들의 배치에도 영향을 줍니다.
+    그러므로 가끔 주변 요소들이 의도하지 않은대로 나타날 수 있는데, clear 속성을 사용하여 이 문제를 해결할 수 있습니다.
+    의도한게 아니라면 대부분 floating 요소 다음 요소에 바로 clear를 해주는게 좋습니다.
+    clear 속성은 float 속성과 항상 따라다니는 속성이므로 잘 알아두어야 합니다.
+
+    ### clear 속성 (default=none)
+
+    요소를 floating 된 요소의 영향에서 벗어나게 하는 속성입니다.
+
+    ```css
+    clear: none|left|right|both|initial|inherit;
+    ```
+
+    - none : 양쪽으로 floating 된 요소를 허용 (기본값)
+    - left : 왼쪽으로 floating 된 요소를 허용하지 않음
+    - right : 오른쪽으로 floating 된 요소를 허용하지 않음
+    - both : 양쪽으로 floating 된 요소를 허용하지 않음
+
+    **clear 속성은 block level 요소만 적용 가능**
+
+    ```css
+    clear: none; /* 기본값 */
+    clear: left; /* 왼쪽 요소 float의 영향에서 벗어남 */
+    clear: right; /* 오른쪽 요소 float의 영향에서 벗어남 */
+    clear: both; /* 양쪽 모두 벗어남 */
+    ```
+
+    ---
+
+    ### 실습 코드
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>float</title>
+		<style>
+			.container {
+				border: 1px dashed #aaa;
+			}
+
+			div, span {
+				border: 1px solid red;
+				padding: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>float: left</h1>
+		<h2>clear: none</h2>
+		<div class="container">
+			<div style="float: left;">float: left;</div>
+			<span style="display: block; clear: none;">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+			</span>
+		</div>
+
+		<h2>clear: left</h2>
+		<div class="container">
+			<div style="float: left;">float: left;</div>
+			<span style="display: block; clear: left;">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+			</span>
+		</div>
+
+		<h2>clear: right</h2>
+		<div class="container">
+			<div style="float: left;">float: left;</div>
+			<span style="display: block; clear: right;">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+			</span>
+		</div>
+
+		<h1>float: right</h1>
+		<h2>clear: left</h2>
+		<div class="container">
+			<div style="float: right;">float: right;</div>
+			<span style="display: block; clear: left;">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+			</span>
+		</div>
+
+		<h2>clear: right</h2>
+		<div class="container">
+			<div style="float: right;">float: right;</div>
+			<span style="display: block; clear: right;">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+			</span>
+		</div>
+
+		<h2>inline-block, clear: right</h2>
+		<div class="container">
+			<div style="float: right;">float: right;</div>
+			<span style="display: inline-block; clear: right;">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+			</span>
+		</div>
+
+		<h1>float: left, right</h1>
+		<h2>clear: both</h2>
+		<div class="container">
+			<div style="float: left;">float: left;</div>
+			<div style="float: right;">float: right;</div>
+			<span style="display: block; clear: both;">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+			</span>
+		</div>
+	</body>
+</html>
+```
+
+---
+
+### 참고자료
+
+[clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
+
+[CSS clear property](https://www.w3schools.com/cssref/pr_class_clear.asp)
+
+[CSS Layout - clear and clearfix](https://www.w3schools.com/css/css_float_clear.asp)
