@@ -580,100 +580,380 @@
 
     ### 실습 코드
 
-```html
-<!DOCTYPE html>
-<html lang="ko">
-	<head>
-		<meta charset="UTF-8">
-		<title>float</title>
-		<style>
-			.container {
-				border: 1px dashed #aaa;
-			}
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>clear</title>
+    		<style>
+    			.container {
+    				border: 1px dashed #aaa;
+    			}
 
-			div, span {
-				border: 1px solid red;
-				padding: 20px;
-			}
-		</style>
-	</head>
-	<body>
-		<h1>float: left</h1>
-		<h2>clear: none</h2>
-		<div class="container">
-			<div style="float: left;">float: left;</div>
-			<span style="display: block; clear: none;">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
-			</span>
-		</div>
+    			div, span {
+    				border: 1px solid red;
+    				padding: 20px;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<h1>float: left</h1>
+    		<h2>clear: none</h2>
+    		<div class="container">
+    			<div style="float: left;">float: left;</div>
+    			<span style="display: block; clear: none;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    			</span>
+    		</div>
 
-		<h2>clear: left</h2>
-		<div class="container">
-			<div style="float: left;">float: left;</div>
-			<span style="display: block; clear: left;">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
-			</span>
-		</div>
+    		<h2>clear: left</h2>
+    		<div class="container">
+    			<div style="float: left;">float: left;</div>
+    			<span style="display: block; clear: left;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    			</span>
+    		</div>
 
-		<h2>clear: right</h2>
-		<div class="container">
-			<div style="float: left;">float: left;</div>
-			<span style="display: block; clear: right;">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
-			</span>
-		</div>
+    		<h2>clear: right</h2>
+    		<div class="container">
+    			<div style="float: left;">float: left;</div>
+    			<span style="display: block; clear: right;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    			</span>
+    		</div>
 
-		<h1>float: right</h1>
-		<h2>clear: left</h2>
-		<div class="container">
-			<div style="float: right;">float: right;</div>
-			<span style="display: block; clear: left;">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
-			</span>
-		</div>
+    		<h1>float: right</h1>
+    		<h2>clear: left</h2>
+    		<div class="container">
+    			<div style="float: right;">float: right;</div>
+    			<span style="display: block; clear: left;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    			</span>
+    		</div>
 
-		<h2>clear: right</h2>
-		<div class="container">
-			<div style="float: right;">float: right;</div>
-			<span style="display: block; clear: right;">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
-			</span>
-		</div>
+    		<h2>clear: right</h2>
+    		<div class="container">
+    			<div style="float: right;">float: right;</div>
+    			<span style="display: block; clear: right;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    			</span>
+    		</div>
 
-		<h2>inline-block, clear: right</h2>
-		<div class="container">
-			<div style="float: right;">float: right;</div>
-			<span style="display: inline-block; clear: right;">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
-			</span>
-		</div>
+    		<h2>inline-block, clear: right</h2>
+    		<div class="container">
+    			<div style="float: right;">float: right;</div>
+    			<span style="display: inline-block; clear: right;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    			</span>
+    		</div>
 
-		<h1>float: left, right</h1>
-		<h2>clear: both</h2>
-		<div class="container">
-			<div style="float: left;">float: left;</div>
-			<div style="float: right;">float: right;</div>
-			<span style="display: block; clear: both;">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
-			</span>
-		</div>
-	</body>
-</html>
-```
+    		<h1>float: left, right</h1>
+    		<h2>clear: both</h2>
+    		<div class="container">
+    			<div style="float: left;">float: left;</div>
+    			<div style="float: right;">float: right;</div>
+    			<span style="display: block; clear: both;">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    				Ipsam aspernatur vitae sapiente laudantium velit quo unde cupiditate autem, 
+    			</span>
+    		</div>
+    	</body>
+    </html>
+    ```
 
----
+    ---
 
-### 참고자료
+    ### 참고자료
 
-[clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
+    [clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
 
-[CSS clear property](https://www.w3schools.com/cssref/pr_class_clear.asp)
+    [CSS clear property](https://www.w3schools.com/cssref/pr_class_clear.asp)
 
-[CSS Layout - clear and clearfix](https://www.w3schools.com/css/css_float_clear.asp)
+    [CSS Layout - clear and clearfix](https://www.w3schools.com/css/css_float_clear.asp)
+
+- position
+
+    요소의 레이아웃을 설정하는 대표적인 속성은 position 속성입니다.
+    position 속성은 요소의 위치를 원하는 곳으로 이동할 수 있게 합니다.
+    position 속성을 사용하기 위해서는 요소를 이동시키기 위한 좌표 속성인 offset에 대해서도 알아야 합니다.
+    position과 offset 속성을 잘 활용하면 더 다양하고 화려한 레이아웃을 구현할 수 있습니다.
+
+    ### position 속성 (default=static)
+
+    요소의 위치를 원하는 곳으로 이동 시킬때 사용하는 속성
+
+    ```css
+    position: static|relative|absolute|fixed|sticky|initial|inherit;
+    ```
+
+    - static : Normal-flow에 따라 배치되며 offset 값이 적용되지 않음 (기본값)
+    - relative : Normal-flow의 흐름을 따름
+                    자신이 원래 있어야 할 위치를 기준으로 offset에 따라 배치
+                    부모의 position 속성에 영향을 받지 않음
+                    주변 요소에 영향을 주지 않으면서 offset 값으로 이동
+                    *** 자기 자신의 요소 왼쪽 상단을 기준점으로 함**
+    - absolute : Normal-flow의 흐름에서 벗어남
+                      부모 요소의 위치를 기준으로 offset에 따라 배치
+                      부모가 position 값(static 제외)을 가지면 offset 값의 시작점이 됨
+                      *** 부모의 position 값이 static인 경우 조상의 position 값이 static
+                          이 아닐때까지 거슬러 올라가 기준으로 잡음 (없을 경우 body 기준)**
+                      *** 부모의 padding영역을 포함 containing block을 기준점으로 함**
+    - fixed : view-port(브라우저의 창)를 기준으로 offset에 따라 배치
+                즉, 화면 스크롤에 관계없이 항상 화면의 정해진 위치에 정보가 나타남
+                부모의 위치에 영향을 받지 않음
+
+    **Normal-flow란?**
+    일반적인 상황에서 각각의 요소들의 성질에 따라 배치되는 순서(흐름)을 뜻합니다.
+    예를 들면, block 레벨 요소들은 상하로 배치되고, inline 레벨 요소들은 좌우로 배치되는것을 말합니다.
+
+    absolute와 fixed의 경우 inline 요소에 선언하게 되는 경우 display 값을 block으로 변경하므로 box model 관련 속성들을 모두 선언할 수 있음
+
+    ```css
+    position: static; /* 기본값, 정적인 위치, 정상흐름 대로 배열, offset 좌표설정 적용안됨 */
+    position: relative; /* 상대적인 위치, 정상흐름 대로 배열, 주변요소들에 영향을 주지않으면서 offset 이동 */
+    position: absolute; /* 절대적인 위치, 정상흐름에서 벗어나 offset으로 이동, 부모를 기준으로 부모가 상대/절대위치를 가지면 offset 값의 기준점이 됨 */
+    position: fixed; /* 고정적인 위치, 뷰포트상에서 offset으로 이동, 부모위치에 영향을 받지않음 */
+    ```
+
+    ### offset 속성 (top/bottom/left/right)
+
+    ```css
+    top|bottom|left|right: auto|lenght|initial|inherit;
+    ```
+
+    ```css
+    top: 10%;
+    bottom: 20px;
+    left: -30px;
+    right: auto;
+    ```
+
+    offset의 % 단위 사용 이전에 padding과 margin에서 % 값을 적용할때, 상하좌우 방향에 관계없이 가로 사이즈를 기준으로 % 값이 계산된다고 배웠습니다.
+    그러나, offset은 top, bottom(상하)는 기준이 되는 요소의 height 값, left, right(좌우)는 width 값에 대하여 계산되어 집니다.
+
+    ---
+
+    ### 실습 코드
+
+    **offset 미지정**
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>position</title>
+    		<style>
+    			.parent {
+    				border: 1px dashed #aaa;
+    				padding: 10px;
+    			}
+
+    			.sibling {
+    				padding: 5px;
+    				background-color: #eee;
+    				text-align: center;
+    			}
+
+    			.child, .child_offset {
+    				width: 60px;
+    				height: 60px;
+    				border: 1px solid #333;
+    				padding: 20px;
+    				background-color: #dc3636;
+    				text-align: center;
+    				color: #fff;
+    				font-weight: bold;
+    			}
+
+    			.child_offset {
+    				background-color: #3677dc;
+    			}
+
+    			.static {
+    				position: static;
+    			}
+
+    			.relative {
+    				position: relative;
+    			}
+
+    			.absolute {
+    				position: absolute;
+    			}
+
+    			.fixed {
+    				position: fixed;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div>
+    			<h1>position offset 미지정</h1>
+    			<h2>position: static;</h2>
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<div class="child static">static</div>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: relative;</h2>
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<!-- 현재는 offset 값을 선언하지 않았기 때문에 static과 relative는 차이가 없음 -->
+    				<div class="child relative">relative</div>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: absolute;</h2>
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<!-- absolute, fixed는 inline 요소일때 display: block; 으로 변경시키고 inline-block 값을 임의 지정했을 때는 그 값을 유지함 -->
+    				<span class="child absolute">absolute</span>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: fixed;</h2>
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<!-- 현재 fixed는 offset 값이 없어 뷰포트 밖으로 밀려나오면서 화면 아래로 사라짐 -->
+    				<div class="child fixed">fixed</div>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    **offset 지정**
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>position & offset</title>
+    		<style>
+    			.parent {
+    				border: 1px dashed #aaa;
+    				padding: 10px;
+    			}
+
+    			.sibling {
+    				padding: 5px;
+    				background-color: #eee;
+    				text-align: center;
+    			}
+
+    			.child, .child_offset {
+    				width: 60px;
+    				height: 60px;
+    				border: 1px solid #333;
+    				padding: 20px;
+    				background-color: #dc3636;
+    				text-align: center;
+    				color: #fff;
+    				font-weight: bold;
+    			}
+
+    			.child_offset {
+    				background-color: #3677dc;
+    			}
+
+    			.static {
+    				position: static;
+    			}
+
+    			.relative {
+    				position: relative;
+    			}
+
+    			.absolute {
+    				position: absolute;
+    			}
+
+    			.fixed {
+    				position: fixed;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div>
+    			<h1>position offset 지정</h1>
+    			<h2>position: static;</h2>
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<!-- static의 경우 offset 값이 적용되지 않음 -->
+    				<!-- 개발자 도구에서도 속성으로 주어진 top, left 값이 그대로 적용되어 있고 속성에 느낌표라던지 취소선같은 표시도 없음 -->
+    				<!-- 개발자가 알고 있어야 하는 스펙으로 브라우저에서 속성값의 조합을 고려하면서까지 오류를 알려주지 않음 -->
+    				<!-- 때문에 offset 값이 적용되지 않는 position: static;이나 position의 default 값(static)인지 확인하여야 함 -->
+    				<div class="child_offset static" style="top: 40px; left: 40px;">static <br>top: 40, left: 40</div>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: relative;</h2>
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<!-- offset 값이 있는 경우 자기 자신의 위치를 기준으로 삼아서 offset 값만큼 위치 변경 -->
+    				<!-- 자기 자신의 요소 왼쪽 상단을 영점으로해서 기준 -->
+    				<div class="child_offset relative" style="top: 40px; left: 40px;">relative <br>top: 40, left: 40</div>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: absolute;</h2>
+    			<!-- 부모 요소의 위치를 기준으로 offset에 따라 배치됨 -->
+    			<!-- 부모 요소의 position 값이 default(static)인 경우 조상의 position 값이 static이 아닐때까지 거슬러 올라감 -->
+    			<!-- 조상의 position 값이 모두 static인 경우 body를 기준으로 offset에 따라 배치됨 -->
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<span class="child_offset absolute" style="top: 40px; left: 80px;">absolute <br>top: 40, left: 80</span>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: absolute; parent: realtive</h2>
+    			<div class="parent relative">
+    			<!-- 이곳의 parent는 position 값을 relative로 가지므로 child의 기준이 됨 -->
+    				<div class="sibling">Sibling 1</div>
+    				<span class="child_offset absolute" style="top: 40px; left: 80px;">parent relative <br>absolute <br>top: 40, left: 80</span>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: absolute; parent: realtive</h2>
+    			<!-- 그렇다면 parent가 갖는 기준점은 어디부터인가? -->
+    			<!-- margin, border 영역을 제외하고 padding 영역부터 기준으로 삼는다 -->
+    			<!-- padding 영역까지 포함한 영역을 containing block 이라고 함 -->
+    			<div class="parent relative" style="margin: 50px; border: 10px dashed #aaa;">
+    				<div class="sibling">Sibling 1</div>
+    				<span class="child_offset absolute">parent relative <br>absolute</span>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+
+    			<h2>position: fixed;</h2>
+    			<!-- 부모의 위치와 상관없이 별개로 브라우저의 좌표값을 기준으로 위치함 -->
+    			<div class="parent">
+    				<div class="sibling">Sibling 1</div>
+    				<!-- inline 요소인 span의 경우에도 position: fixed;를 하게되면 display: block;으로 변경 -->
+    				<span class="child_offset fixed" style="top: 100px; left: 80%;">fixed <br>top: 100, left: 80%</span>
+    				<div class="sibling">Sibling 2</div>
+    			</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [position](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+
+    [CSS Layout - The position Property](https://www.w3schools.com/css/css_positioning.asp)
+
+    [CSS position property](https://www.w3schools.com/cssref/pr_class_position.asp)
