@@ -30,3 +30,53 @@
     [Media types](https://www.w3.org/TR/1998/WD-css2-19980128/media.html)
 
     [Media Queries](https://www.w3.org/TR/css3-mediaqueries/)
+
+- 미디어 타입 & 미디어 특성
+
+    ### @media(at media)
+
+    미디어 쿼리는 CSS2 Media Types을 확장했기 때문에 선언 방법은 동일합니다.
+
+    ```css
+    @media mediaqueries { /* style rules */ }
+    ```
+
+    @media로 시작하며, 이 키워드는 이제부터 미디어 쿼리를 시작한다 라는 뜻입니다.
+    그 뒤에 미디어 쿼리 구문(위 코드의 mediaqueries)이 나오고 이어서 중괄호({ })를 이용해서 스타일 규칙이 들어갑니다.
+    미디어 쿼리 구문은 논리적으로 평가되며 참이면 뒤에 나오는 스타일 규칙이 적용되고, 거짓이면 무시됩니다.
+    미디어 쿼리 구문은 미디어 타입(Media types)과 미디어 특성(Media Features)으로 이루어져 있습니다.
+
+    ### 미디어 타입
+
+    - **all**, braille, embossed, handheld, **print**, projection, **screen**, speech, tty, tv
+
+    우리가 알아야 할 타입은 all, print, screen 정도입니다. 그 중에서도 screen이 거의 대부분입니다.
+    화면을 출력하는 디스플레이가 있는 미디어들은 전부 screen에 속하기 때문에 현실적으로 고려해야하는 미디어들은 전부 여기에 해당이 됩니다.
+    print 타입도 간혹 사용이 됩니다.
+    all 타입은 모든 미디어에 적용되는 타입입니다. 미디어를 구분하는 용도가 아니기 때문에 유용하게 사용되지는 않습니다.
+
+    ### 미디어 특성
+
+    - **width**, height, device-width, device-height, **orientation**, aspect-ratio, device-aspect-ratio, color, color-index, monochrome, resolution, scan, grid
+
+    미디어 특성 역시 우리가 알아야 할 특성은 width와 orientation 정도입니다.
+    width는 뷰포트의 너비, 즉 브라우저 창의 너비를 말합니다. (스크린의 크기 X)
+    orientation은 미디어가 세로모드인지 가로모드인지를 구분합니다.
+    미디어 쿼리에서는 이 구분을 width와 height 특성의 값을 비교해서 height가 width보다 같거나 크면 세로모드, 반대인 경우에는 가로모드라고 해석합니다.
+    세로모드에서는 portrait, 가로모드에서는 landscape 키워드와 매칭이 됩니다.
+
+    ### 미디어 쿼리 level 4
+
+    지금 설명하는 미디어 타입과 미디어 특성은 CSS3 미디어 쿼리 표준 명세를 기준으로 작성되었습니다.
+    현재, 미디어 쿼리 level 4가 CR(유력 후보안) 단계입니다.
+    해당 문서에서 미디어 타입 대부분과 미디어 특성 중 일부 속성이 폐기 예정입니다.
+
+    ---
+
+    ### 참고자료
+
+    [Media Queries](https://www.w3.org/TR/css3-mediaqueries/#media1)
+
+    [](https://www.w3.org/TR/mediaqueries-4/#media-types)
+
+    [](https://www.w3.org/TR/mediaqueries-4/#mf-deprecated)
