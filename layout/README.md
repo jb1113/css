@@ -957,3 +957,227 @@
     [CSS Layout - The position Property](https://www.w3schools.com/css/css_positioning.asp)
 
     [CSS position property](https://www.w3schools.com/cssref/pr_class_position.asp)
+
+- z-index
+
+    요소의 위치를 지정하다 보면 부득이하게 두 요소가 겹쳐지게 되는 경우가 있습니다.
+    결국 둘 중 하나는 다른 요소로 인해 덮어쓰게 됩니다.
+    이때 어느 요소가 더 위로 올라와야 하는지는 요소들의 쌓임 순서의 규칙에 따라 위치하게 되는데, 이것을 정하는 것이 바로 z-index의 역할입니다.
+    쌓임 순서는 z-index 속성을 이용하여 바꿀수 있습니다.
+
+    ### z-index 속성 (default=auto)
+
+    요소가 겹치는 순서(쌓임 순서 또는 stack order)를 지정하는 속성입니다.
+
+    ```css
+    z-index: auto|number|initial|inherit;
+    ```
+
+    - auto : 쌓임 순서를 부모와 동일하게 설정 (기본값)
+    - number : 해당 수치로 쌓임 순서를 설정 (음수 가능)
+
+    ```css
+    z-index: 1;
+    ```
+
+    - position 값이 static이 아닌 경우 지정 가능
+    - 순서 값이 없을 경우 생성 순서(코드상 순서)에 따라 쌓임
+    - 부모가 z-index 값이 있을 경우 부모 안에서만 의미 있음
+    - 큰 값이 가장 위쪽 (음수 사용 가능)
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>z-index</title>
+    		<style>
+    			.z_area:nth-child(2) {
+    				position: absolute;
+    				top: 300px;
+    			}
+
+    			.z_area #myBox {
+    				position: absolute;
+    				width: 100px;
+    				height: 100px;
+    				border: 1px solid black;
+    				background-color: red;
+    			}
+
+    			.box {
+    				position: absolute;
+    				width: 100px;
+    				height: 100px;
+    				border: 1px solid black;
+    				background-color: yellow;
+    				opacity: 0.6;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div class="z_area">
+    			<div id="myBox" style="position: absolute; background-color: red;">myBox</div>
+    			<div class="box" style="position: absolute; top: 20px; left: 20px;">z-index auto</div>
+    			<div class="box" style="position: absolute; top: 40px; left: 40px;">z-index auto</div>
+    			<div class="box" style="position: absolute; top: 60px; left: 60px;">z-index auto</div>
+    			<div class="box" style="position: absolute; top: 80px; left: 80px;">z-index auto</div>
+    		</div>
+
+    		<div class="z_area">
+    			<div id="myBox" style="position: absolute; background-color: red; z-index: 4;">myBox</div>
+    			<div class="box" style="position: absolute; top: 20px; left: 20px; z-index: 0;">z-index 0</div>
+    			<div class="box" style="position: absolute; top: 40px; left: 40px; z-index: 1;">z-index 1</div>
+    			<div class="box" style="position: absolute; top: 60px; left: 60px; z-index: 2;">z-index 2</div>
+    			<div class="box" style="position: absolute; top: 80px; left: 80px; z-index: 3;">z-index 3</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ### 부모가 z-index 값이 있을 경우 부모 안에서만 의미 있음
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>parent z-index value</title>
+    		<style>
+    			.parent {
+    				z-index: 10;
+    				position: relative;
+    				width: 300px;
+    				height: 50px;
+    				border: 2px solid black;
+    				background-color: gray;
+    			}
+
+    			.child {
+    				z-index: 10;
+    				position: absolute;
+    				top: 10px;
+    				right: 20px;
+    				width: 100px;
+    				height: 100px;
+    				border: 2px solid red;
+    				background-color: pink;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div class="z_area">
+    			<!-- <div class="parent" style="position: relative;">position: relative; -->
+    			<div class="parent" style="position: relative; z-index: 11;">position: relative;
+    				<!-- <div class="child" style="right: 20px; z-index: 10;">position: absolute;</div> -->
+    				<div class="child" style="right: 20px; z-index: 1000;">position: absolute;</div>
+    			</div>
+
+    			<div class="parent" style="position: relative;">position: relative;
+    				<!-- <div class="child" style="right: 10px; z-index: 10;">position: absolute;</div> -->
+    				<div class="child" style="right: 10px;">position: absolute;</div>
+    			</div>
+    		</div>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 실습 코드
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>z-index Stacking Context</title>
+    		<style>
+    			div {
+    				width: 500px;
+    				border: 1px dashed #696;
+    				padding: 10px;
+    				margin: 10px;
+    				background-color: #5ae05a;
+    				opacity: 0.7;
+    			}
+
+    			div > div {
+    				width: 90%;
+    			}
+
+    			#div1 {
+    				margin-bottom: 190px;
+    			}
+
+    			#div3 {
+    				top: 80px;
+    				left: 180px;
+    				width: 400px;
+    				padding-top: 50px;
+    				background-color: yellow;
+    				opacity: 1;
+    			}
+
+    			#div4, #div5 {
+    				background-color: #ff8f00;
+    			}
+
+    			#div6 {
+    				top: 20px;
+    				left: 180px;
+    				width: 150px;
+    				height: 125px;
+    				padding-top: 110px;
+    				background-color: #e600ff;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<h1>z-index (Stacking Context)</h1>
+    		<div id="div1" style="position: relative; z-index: 5;">
+    			<strong>#1</strong><br>
+    			<code>position: relative;<br/>z-index: 5;</code>
+    		</div>
+    		<div id="div2" style="position: relative; z-index: 2;">
+    			<strong>#2</strong><br>
+    			<code>position: relative;<br/>z-index: 2;</code>
+    		</div>
+    		<div id="div3" style="position: absolute; z-index: 4;">
+    			<div id="div4" style="position: relative; z-index: 6;">
+    				<strong>#4</strong><br>
+    				<code>position: relative;<br/>z-index: 6;</code>
+    			</div>
+    			<strong>#3</strong><br>
+    			<code>position: absolute;<br/>z-index: 4;</code>
+    			<div id="div5" style="position: relative; z-index: 1;">
+    				<strong>#5</strong><br>
+    				<code>position: relative;<br/>z-index: 1;</code>
+    			</div>
+    			<div id="div6" style="position: absolute; z-index: 3;">
+    				<strong>#6</strong><br>
+    				<code>position: absolute;<br/>z-index: 3;</code>
+    			</div>
+    		</div>
+
+    		<h2>설명:</h2>
+    		<ul>
+    			<li>#4는 #1보다 z-index 값이 더 크지만 #1보다 아래에 렌더링 됨</li>
+    			<li>#1의 z-index: 5;는 뿌리 엘리먼트의 쌓임 맥락 안에서 유효하나 #4의 z-index: 6;은 #3의 쌓임 맥락 안에서만 유효하기 때문</li>
+    			<li>#4는 자신이 속하는 #3의 z-index: 3;이므로 #1 아래에 쌓임, 같은 이유로 #2는 #5 아래에 렌더링 됨</li>
+    			<li>#5는 #2보다 z-index 값이 작지만, #5가 속한 #3의 z-index 값이 #2의 z-index 값보다 더 크기 때문</li>
+    			<li>#3은 루트 엘리먼트(HTML)에 속해있어 #4, #5, #6의 z-index 속성값과 독립적임</li>
+    		</ul>
+    	</body>
+    </html>
+    ```
+
+    ---
+
+    ### 참고자료
+
+    [z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)
+
+    [CSS z-index property](https://www.w3schools.com/cssref/pr_pos_z-index.asp)
+
+    [Playit](https://www.w3schools.com/cssref/playit.asp?filename=playcss_z-index)
