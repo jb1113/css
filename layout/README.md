@@ -132,14 +132,12 @@
 
     **parent는 `<div>`, child는 `<span>`**
 
-    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_192%2F15378194530768HSiV_PNG%2F111.png](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_192%2F15378194530768HSiV_PNG%2F111.png)
-
+    ![display_inline_level1](./display_inline_level1.png)
     하지만 상/하 padding/border는 line-box에는 영향을 주지 못하기 때문에 위와 같이 부모 요소의 박스에 반영되지 않습니다.
 
     **parent는 `<div>`, child는 `<span>`**
 
-    [https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_34%2F1537819494133zgf3i_PNG%2F1111.png](https://www.boostcourse.org/viewer/image?src=https%3A%2F%2Fcphinf.pstatic.net%2Fmooc%2F20180925_34%2F1537819494133zgf3i_PNG%2F1111.png)
-
+    ![display_inline_level2](./display_inline_level2.png)
     또한 인접한 다른 line-box에도 반영되지 않습니다.
     즉, 콘텐츠가 겹칠수 있기 때문에 실무에서는 잘 사용하지 않습니다.
 
