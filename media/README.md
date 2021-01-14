@@ -81,7 +81,7 @@
 
     [](https://www.w3.org/TR/mediaqueries-4/#mf-deprecated)
 
-- Syntax -1
+- Syntax
 
     ### 미디어 쿼리 Syntax
 
@@ -192,3 +192,121 @@
     ### 참고자료
 
     [Media Queries](https://www.w3.org/TR/css3-mediaqueries/#syntax)
+
+- 실습 코드
+
+    **기본 구조**
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ko">
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>Media Queries</title>
+    		<style>
+    			/* media query here */
+    		</style>
+    	</head>
+    	<body>
+    		<p>
+    			W3C는 <a href="https://www.w3.org/TR/css3-mediaqueries/">CSS3 미디어쿼리 문서</a>를 
+    			2012년 6월에 표준 권고안으로 제정하였습니다.
+    		</p>
+    		<p>
+    			또한, 기존의 미디어쿼리 개선 작업을 진행 중이며, 2017년 9월에
+    			<a href="https://www.w3.org/TR/mediaqueries-4/">미디어쿼리 레벨4</a>를 발표했습니다. 
+    			이 문서는 현재 유력 표준 권고안입니다.
+    		</p>
+    	</body>
+    </html>
+    ```
+
+    ### 디스플레이 크기에 따른 body요소의 background-color 변경
+
+    - 0 ~ 767px이면 (mobile) : crimson
+    - 768px ~ 1024px이면 (tablet) : darkblue
+    - 1025px ~ 이면 (desktop) : teal
+
+    width 미디어 특성을 이용해서 뷰포트 가로 크기에 따라 배경 색상을 변경
+
+    ```css
+    @media screen and (max-width: 767px) {
+    	body { background-color: crimson; }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+    	body { background-color: darkblue; }
+    }
+
+    @media screen and (min-width: 1025px) {
+    	body { background-color: teal; }
+    }
+    ```
+
+    위 코드의 경우, 3개의 조건을 만족하기 위해 3개의 미디어 쿼리를 작성했습니다.
+    위 코드도 의도한 대로 정상적으로 잘 동작하지만, 1개의 조건을 기본 body 요소의 배경 색상으로 지정해놓게 된다면 다른 2개의 미디어 쿼리만 이용해도 가능합니다.
+
+    어떤 조건을 기본으로 정할지는 작성하는 사이트가 모바일 사이트인지, 데스크탑 사이트인지를 먼저 구분해야 합니다.
+
+    모바일 중심의 사이트라면(mobile first) 모바일에 해당하는 조건의 배경 색상을 기본으로 선언하면 되고, 데스크탑 중심의 사이트라면(desktop first) 데스크탑에 해당하는 조건의 배경 색상을 기본으로 선언해 놓으면 됩니다.
+    만들어진 미디어 쿼리를 수정해서, mobile first인 경우 또 desk first인 경우대로 작성해 봅니다.
+
+    **mobile first**
+
+    ```css
+    /* mobile first */
+    body { background-color: crimson; }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+    	body { background-color: darkblue; }
+    }
+
+    @media screen and (min-width: 1025px) {
+    	body { background-color: teal; }
+    }
+    ```
+
+    **desktop first**
+
+    ```css
+    /* desktop first */
+    body { background-color: teal; }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+    	body { background-color: darkblue; }
+    }
+
+    @media screen and (max-width: 767px) {
+    	body { background-color: crimson; }
+    }
+    ```
+
+    ### 페이지 인쇄하는 경우의 스타일 추가
+
+    - 앵커 요소의 url 출력
+    - 앵커 요소의 밑줄 제거
+
+    미디어 타입 print를 이용하면 인쇄될 경우에 적용되는 스타일을 추가할 수 있습니다.
+
+    ```css
+    @media print {
+    	a:after {
+    		display: inline;
+    		content: "("attr(href)")";
+    	}
+    	a { text-decoration: none; }
+    }
+    ```
+
+    웹 페이지를 인쇄할 경우에는 앵커 요소가 가리키는 url을 문서에 같이 출력해주는게 내용을 이해하는데 훨씬 좋습니다.
+    실제 인쇄를 하지 않더라도 브라우저에서 제공하는 인쇄 미리보기 기능을 이용하면 화면으로 확인이 가능합니다.
+
+    ---
+
+    ### 참고자료
+
+    [Media Queries](https://www.w3.org/TR/css3-mediaqueries/)
+
+    [](https://www.w3.org/TR/mediaqueries-4/)
+
+    [Media Queries](https://mediaqueri.es/)
