@@ -11,7 +11,7 @@
 
     ### BOX MODEL의 구성
 
-    ![boxmodel](../boxmodel.png)
+    ![boxmodel](./boxmodel.png)
     > 출처 [https://www.boostcourse.org/cs120/lecture/92913/](https://www.boostcourse.org/cs120/lecture/92913/)
 
     ### Content 영역
@@ -394,7 +394,7 @@
     마진 병합은 수직 방향으로만 이루어지며, 좌우에 대해서는 일어나지 않습니다.
     마진 병합은 마진이 반드시 맞닿아야 발생하기 때문에 2, 3번째의 경우 패딩 및 보더가 없어야 합니다.
 
-    ![margin collapse](../margin_collapse.png)
+    ![margin collapse](./margin_collapse.png)
     > 출처 [https://www.boostcourse.org/cs120/lecture/92916/](https://www.boostcourse.org/cs120/lecture/92916/)
 
     마진 병합을 활용하여 첫 번째와 두 번째 컴포넌트의 조합이 다양한 경우 여백을 다르게 사용할 수 있습니다.
