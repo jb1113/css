@@ -348,7 +348,7 @@
     - 요소를 보통의 흐름에서 벗어나 띄워지게 함
     - 주변 텍스트나 인라인 요소가 주위를 감싸는 특징
     - 대부분 요소의 display 값을 block으로 변경함
-    예외적으로 inline-table, flext 등은 display 값이 block으로 변경되지 않고,
+    예외적으로 inline-table, flex 등은 display 값이 block으로 변경되지 않고,
     기존의 display 값을 유지
 
     ### 요소를 보통의 흐름에서 벗어나 띄워지게 함
@@ -401,11 +401,12 @@
 
     			<!-- 모든 요소마다 이런식으로 float이 들어갈 수 있는데 
     			앞에 어떤 내용의 float이 올지 모르는 상황에서 
-    			모든 요소에 다 clear 속성을 선언하게 되면 
+    			모든 다음 요소에 다 clear 속성을 선언하게 되면 
     			불필요한 속성을 너무 많이 선언하게 되기 때문에 
     			일반적으로 해당 자식 요소들이 float을 갖고 있을 수 있으므로 
-    			부모 요소에서 이 안의 내용들이 모두 clear 될 수 있도록 작업합니다. -->
-    			<!-- span의 display를 block으로 꼭 변경해 주어야 한다. -->
+    			해당 요소의 마지막에 이 안의 내용들이 모두 clear 될 수 있도록 작업합니다. -->
+    			<!-- clear 속성은 block-level 요소에만 적용 가능하기 때문에 
+			span의 display를 block으로 꼭 변경해 주어야 한다. -->
     			<span style="display: block; clear: both"></span>
     		</div>
 
