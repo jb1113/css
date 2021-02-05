@@ -407,7 +407,7 @@
     			불필요한 속성을 너무 많이 선언하게 되기 때문에 
     			일반적으로 해당 자식 요소들이 float을 갖고 있을 수 있으므로 
     			해당 요소의 마지막에 이 안의 내용들이 모두 clear 될 수 있도록 작업합니다. -->
-    			<!-- clear 속성은 block-level 요소에만 적용 가능하기 때문에 
+    			<!-- clear 속성은 block-level 요소에만 적용 가능하기 때문에
 			span의 display를 block으로 꼭 변경해 주어야 한다. -->
     			<span style="display: block; clear: both"></span>
     		</div>
